@@ -1,68 +1,224 @@
-Live Demo: https://umerazmi.github.io/javascript-learning/
+# 🚀 JavaScript Mastery Guide
 
-1st file has following topics:
+A structured, interactive learning resource covering modern JavaScript from core fundamentals to advanced concepts, including asynchronous programming and DOM manipulation.
 
-1: Output & Comments (console.log, window.alert, document.getElementById, single/multi-line comments)
-2: Variables (let, strings, numbers, booleans, template literals)
-3: Arithmetic Operators (+, -, *, /, **, %, shorthand operators, increment/decrement, operator precedence)
-4: User Input (window.prompt, HTML textbox with .onclick and .value)
-5: Type Conversion (Number(), String(), Boolean(), typeof)
-6: Constants (const keyword)
-7: Math Object (Math.PI, Math.E, Math.round, Math.floor, Math.ceil, Math.trunc, Math.pow, Math.sqrt, Math.log, Math.sin, Math.cos, Math.tan, Math.abs, Math.sign, Math.max, Math.min, Math.random)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=for-the-badge\&logo=javascript)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge\&logo=html5\&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge\&logo=css3\&logoColor=white)
 
-2nd file has following topics:
+---
 
-8: If Statements (if, else if, else, comparison operators)
-9: Checked Property (checkboxes, radio buttons, .checked)
-10: Ternary Operator (condition ? true : false)
-11: Switch Statements (switch, case, break, default, switch(true))
-12: String Methods (.length, .charAt, .indexOf, .lastIndexOf, .trim, .toUpperCase, .toLowerCase, .repeat, .startsWith, .endsWith, .includes, .replaceAll, .padStart, .padEnd)
-13: String Slicing (.slice method, extracting substrings)
-14: Method Chaining (calling multiple methods in one line)
+## 📚 About
 
-3rd file has following topics:
+This project is a self-contained JavaScript learning platform built from the ground up. It provides a structured progression through essential concepts using interactive examples, practical demonstrations, and well-commented code.
 
-15: Logical Operators (&&, ||, !, combining boolean conditions)
-16: Equality Operators (=, ==, ===, !=, !==)
-17: While Loops (while, do-while, login system example)
-18: For Loops (increment, decrement, limited repetition)
-19: Functions (declaration, parameters, arguments, return, reusable code)
+### 🎯 Suitable For
 
-4th file has following topics:
+* Learners building a strong JavaScript foundation
+* Developers reviewing core concepts
+* Interview preparation and revision
+* Hands-on exploration of modern JavaScript features
 
-20: Arrays (push, pop, unshift, shift, length, indexOf, sort, reverse, for...of loops)
-21: 2D Arrays (multi-dimensional arrays, matrix structure, accessing rows/columns)
-22: Spread Operator (...) (expanding arrays/strings into separate elements, combining arrays)
-23: Rest Parameters (...) (bundling arguments into array, variable number of parameters)
-24: Callback Functions (passing functions as arguments, asynchronous operations)
+---
 
-5th file has following topics:
+## ✨ Features
 
-25: forEach() Method (iterate over arrays, apply callback to each element, modifies original)
-26: map() Method (transform each element, returns NEW array, original unchanged)
-27: filter() Method (filter elements by condition, returns NEW array with passing elements)
-28: reduce() Method (reduce array to single value: sum, max, min, etc.)
-29: Function Expressions (defining functions as values/variables, anonymous functions)
-30: Arrow Functions (concise syntax, implicit return, perfect for callbacks)
+### 📖 Interactive Learning
 
-6th file has following topics:
+* Book-style interface with clear navigation
+* 9 organized chapters covering 49+ JavaScript topics
+* Syntax-highlighted code examples
+* Interactive demos for DOM manipulation and events
 
-31: Objects (properties, methods, nested objects, 'this' in objects)
-32: Constructors (constructor functions, 'new' keyword, 'this' in constructors, creating instances)
-33: Classes (constructors, methods, inheritance, static methods)
-34: Destructuring (array & object destructuring, renaming, default values, function parameters)
+### 💻 Live Code Viewer
 
-7th file has following topics:
+* Side-panel JavaScript file viewer
+* Sliding split-view panel
+* Syntax highlighting for keywords, strings, and comments
+* Integrated on every page
 
-35: ES6 Modules (import/export, named exports, default exports)
-36: JSON (JSON.parse, JSON.stringify, working with API data)
-37: Error Handling (try/catch/finally, throw, Error object, custom errors)
+### 🎮 Interactive Examples (Chapter 8)
 
-8th file has following topics:
+* Run examples for async JavaScript concepts
+* Real-time setTimeout demonstrations
+* Promises, Async/Await, and Fetch API examples
+* Clean console output for each run
 
-38: Synchronous vs Asynchronous (setTimeout explained, blocking vs non-blocking, execution flow)
-39: Callback Hell (nested callbacks, pyramid of doom, why to avoid it)
-40: Promises (PENDING/RESOLVED/REJECTED states, chaining rules, .then()/.catch())
-41: Async/Await (async keyword, await keyword, try/catch, sequential operations)
-42: Fetch API (HTTP requests, response.json() explained, .then() vs async/await versions)
+### 📱 Responsive Design
 
+* Works across desktop, tablet, and mobile
+* Clean and consistent styling
+* Smooth transitions and hover effects
+
+---
+
+## 📑 Table of Contents
+
+### Chapter 1 — JavaScript Basics
+
+Variables, Data Types, Arithmetic Operators, User Input, Type Conversion, Constants, Math Object
+
+### Chapter 2 — Control Flow & Strings
+
+If Statements, Ternary Operator, Switch, String Methods, String Slicing, Method Chaining
+
+### Chapter 3 — Loops & Functions
+
+Logical Operators, Equality Operators, While Loops, For Loops, Functions
+
+### Chapter 4 — Arrays & Callbacks
+
+Arrays, Array Methods, 2D Arrays, Spread Operator, Rest Parameters, Callbacks
+
+### Chapter 5 — Array Methods & Functions
+
+forEach(), map(), filter(), reduce(), Function Expressions, Arrow Functions
+
+### Chapter 6 — Object-Oriented Programming
+
+Objects, Constructor Functions, Classes (ES6), Inheritance, Static Methods, Destructuring
+
+### Chapter 7 — Modules, JSON & Error Handling
+
+ES6 Modules, JSON Handling, Error Management (try/catch/finally)
+
+### Chapter 8 — Asynchronous JavaScript
+
+Callback Patterns, Promises, Async/Await, Fetch API
+
+### Chapter 9 — DOM Manipulation & Events
+
+Element Creation, Event Listeners, Dynamic Updates, Query Selectors, UI Interactions
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* Any modern web browser (Chrome, Firefox, Safari, Edge)
+* Basic familiarity with HTML is helpful
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/UmerAzmi/javascript-mastery.git
+cd javascript-mastery
+```
+
+2. Open in browser:
+
+```bash
+# Open home.html directly
+# OR run a local server
+# Then visit: http://localhost:8000/home.html
+```
+
+3. Begin learning from any chapter.
+
+---
+
+## 📂 Project Structure
+
+```
+javascript-mastery/
+│
+├── home.html                    # Homepage with navigation
+│
+├── 1.html & 1.js               # Chapter 1: JavaScript Basics
+├── 2.html & 2.js               # Chapter 2: Control Flow & Strings
+├── 3.html & 3.js               # Chapter 3: Loops & Functions
+├── 4.html & 4.js               # Chapter 4: Arrays & Callbacks
+├── 5.html & 5.js               # Chapter 5: Array Methods & Functions
+├── 6.html & 6.js               # Chapter 6: OOP Concepts
+├── 7.html & 7.js               # Chapter 7: Modules & Error Handling
+├── 8.html & 8.js               # Chapter 8: Async JavaScript
+└── 9.html & 9.js               # Chapter 9: DOM Manipulation & Events
+```
+
+**Simple Structure Benefits:**
+* All files at root level (no nested folders)
+* Easy navigation and deployment
+* Clean, numbered organization
+* No path configuration needed
+
+---
+
+## 🎨 Key Concepts Covered
+
+### Modern JavaScript (ES6+)
+
+* let, const, template literals
+* Arrow functions
+* Destructuring (arrays & objects)
+* Spread and rest operators
+* Classes and inheritance
+* ES modules
+
+### Asynchronous Programming
+
+* Callback patterns
+* Promises
+* Async/Await
+* Fetch API
+* Error handling
+
+### DOM Manipulation
+
+* Query selectors
+* Dynamic element creation
+* Event handling
+* Content updates
+* Interactive UI behavior
+
+### Arrays & Objects
+
+* Functional array methods
+* Object manipulation
+* Constructors and classes
+* Method chaining
+
+---
+
+## 💡 Unique Highlights
+
+* Integrated source code viewer on every page
+* Interactive async demonstrations
+* Extensive in-code explanations
+* Focus on practical understanding rather than memorization
+* Pure vanilla JavaScript implementation (no frameworks)
+
+---
+
+## 🎓 Recommended Learning Path
+
+1. Begin with Chapter 1 if new to JavaScript
+2. Progress through Chapters 2–5 for fundamentals
+3. Study Chapter 6 for object-oriented concepts
+4. Master Chapter 8 for asynchronous programming
+5. Practice Chapter 9 to understand DOM interaction
+
+---
+
+## 👨‍💻 Author
+
+**Umer Azmi**
+
+* GitHub: https://github.com/UmerAzmi
+* LinkedIn: https://linkedin.com/in/umer-azmi-1181351a1
+
+---
+
+## 📝 License
+
+This project is open source and available under the MIT License.
+
+---
+
+<div align="center">
+
+**Happy Learning 🚀**
+
+</div>
