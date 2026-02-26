@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://raw.githubusercontent.com/UmerAzmi/umerazmi/4808b388a23a62988740c6eb078b6d75cab148a9/imgs/js.png">
+    <title>JavaScript Array Methods & Functions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #22c55e;
+            border-bottom: 2px solid #22c55e;
+            padding-bottom: 10px;
+        }
+        .output {
+            background-color: #f0f0f0;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #22c55e;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .info-box {
+            background-color: #e0f2fe;
+            border-left: 4px solid #0284c7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .example-box {
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .comparison-box {
+            background-color: #f3e8ff;
+            border-left: 4px solid #a855f7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #22c55e;
+            color: white;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #d63384;
+        }
+        .method-name {
+            font-weight: bold;
+            color: #22c55e;
+            font-size: 18px;
+        }
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9fafb;
+            border-radius: 8px;
+        }
+        .flow-item {
+            text-align: center;
+            padding: 10px;
+        }
+        .arrow {
+            font-size: 24px;
+            color: #22c55e;
+        }
+        .syntax-box {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+        }
+        .syntax-box .keyword {
+            color: #c084fc;
+        }
+        .syntax-box .string {
+            color: #86efac;
+        }
+        .syntax-box .comment {
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Array Methods & Functions</h1>
+    <section style="border: 2px dashed #22c55e; padding: 15px 25px; margin: 20px 0; border-radius: 8px; text-align: center; background-color: transparent;">
+        <p style="color: #64748b; font-size: 17px; margin: 0 0 6px 0;">📄 Detailed explanations & code examples are in the <strong style="color: #22c55e;">JavaScript (.js) file</strong></p>
+        <p style="color: #64748b; font-size: 17px; margin: 0;">👇 Click the <strong style="color: #22c55e;">{ } button</strong> at the bottom right to view it</p>
+    </section>
+    <p style="text-align: center; font-size: 18px; color: #64748b;">
+        Open the browser console (F12) to see all outputs!
+    </p>
+
+    <!-- ================= TOPIC 25: forEach() ================= -->
+    <section>
+        <h2>Topic 25: forEach() Method</h2>
+        <p class="method-name">.forEach()</p>
+        <p>Iterates over array elements and applies a function to each one</p>
+        
+        <div class="info-box">
+            <strong>Syntax:</strong> <code>array.forEach(callback)</code><br>
+            <strong>Callback receives:</strong> element, index, array<br>
+            <strong>Returns:</strong> undefined (modifies original array)
+        </div>
+
+        <div class="flow-diagram">
+            <div class="flow-item">
+                <strong>Original Array</strong><br>
+                [1, 2, 3, 4, 5]
+            </div>
+            <div class="arrow">→</div>
+            <div class="flow-item">
+                <strong>forEach(cube)</strong><br>
+                Apply function to each
+            </div>
+            <div class="arrow">→</div>
+            <div class="flow-item">
+                <strong>Modified Array</strong><br>
+                [1, 8, 27, 64, 125]
+            </div>
+        </div>
+
+        <table>
+            <tr>
+                <th>Example</th>
+                <th>Function</th>
+                <th>What It Does</th>
+            </tr>
+            <tr>
+                <td>Example 1</td>
+                <td>double, triple, square, cube</td>
+                <td>Math operations on numbers</td>
+            </tr>
+            <tr>
+                <td>Example 2</td>
+                <td>upperCase, lowercase, capitalize</td>
+                <td>Text transformations on strings</td>
+            </tr>
+        </table>
+
+        <div class="output">
+            <h3>Console Output:</h3>
+            After cube: 1, 8, 27, 64, 125<br>
+            After capitalize: Apple, Orange, Banana, Coconut
+        </div>
+
+        <div class="comparison-box">
+            <strong>⚠️ Important:</strong> forEach() MODIFIES the original array. If you want to keep the original unchanged, use map() instead.
+        </div>
+    </section>
+
+    <!-- ================= TOPIC 26: map() ================= -->
+    <section>
+        <h2>Topic 26: map() Method</h2>
+        <p class="method-name">.map()</p>
+        <p>Creates a NEW array by applying a function to each element</p>
+        
+        <div class="info-box">
+            <strong>Syntax:</strong> <code>const newArray = array.map(callback)</code><br>
+            <strong>Callback receives:</strong> element, index, array<br>
+            <strong>Returns:</strong> NEW array (original unchanged)
+        </div>
+
+        <div class="flow-diagram">
+            <div class="flow-item">
+                <strong>Original Array</strong><br>
+                [1, 2, 3, 4, 5]<br>
+                <span style="color: #22c55e;">✓ Unchanged</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="flow-item">
+                <strong>map(square)</strong><br>
+                Transform each element
+            </div>
+            <div class="arrow">→</div>
+            <div class="flow-item">
+                <strong>New Array</strong><br>
+                [1, 4, 9, 16, 25]
+            </div>
+        </div>
+
+        <table>
+            <tr>
+                <th>Example</th>
+                <th>Input</th>
+                <th>Transformation</th>
+                <th>Output</th>
+            </tr>
+            <tr>
+                <td>Example 1</td>
+                <td>[1, 2, 3, 4, 5]</td>
+                <td>square / cube</td>
+                <td>[1, 4, 9, 16, 25]</td>
+            </tr>
+            <tr>
+                <td>Example 2</td>
+                <td>["Umer", "Azmi"]</td>
+                <td>toUpperCase</td>
+                <td>["UMER", "AZMI"]</td>
+            </tr>
+            <tr>
+                <td>Example 3</td>
+                <td>["2024-1-10"]</td>
+                <td>Format date</td>
+                <td>["1/10/2024"]</td>
+            </tr>
+        </table>
+
+        <div class="output">
+            <h3>Console Output:</h3>
+            Cubed: [1, 8, 27, 64, 125]<br>
+            Lowercase: ["umer", "azmi", "ahmed", "khan"]<br>
+            Formatted: ["1/10/2024", "2/20/2025", "3/30/2026"]
+        </div>
+
+        <div class="comparison-box">
+            <strong>⚠️ Key difference:</strong> forEach modifies original array, map returns new array.
+        </div>
+    </section>
+
+    <!-- ================= TOPIC 27: filter() ================= -->
+    <section>
+        <h2>Topic 27: filter() Method</h2>
+        <p class="method-name">.filter()</p>
+        <p>Creates a NEW array with only elements satisfiying a condition</p>
+        
+        <div class="info-box">
+            <strong>Syntax:</strong> <code>const newArray = array.filter(callback)</code><br>
+            <strong>Callback receives:</strong> element, index, array<br>
+            <strong>Returns:</strong> NEW array with filtered elements<br>
+            <strong>Test:</strong> Callback must return true/false
+        </div>
+
+        <div class="flow-diagram">
+            <div class="flow-item">
+                <strong>Original Array</strong><br>
+                [1, 2, 3, 4, 5, 6, 7]
+            </div>
+            <div class="arrow">→</div>
+            <div class="flow-item">
+                <strong>filter(isEven)</strong><br>
+                Keep only if true
+            </div>
+            <div class="arrow">→</div>
+            <div class="flow-item">
+                <strong>Filtered Array</strong><br>
+                [2, 4, 6]
+            </div>
+        </div>
+
+        <table>
+            <tr>
+                <th>Example</th>
+                <th>Input</th>
+                <th>Filter Condition</th>
+                <th>Output</th>
+            </tr>
+            <tr>
+                <td>Example 1</td>
+                <td>[1,2,3,4,5,6,7]</td>
+                <td>isEven (% 2 === 0)</td>
+                <td>[2, 4, 6]</td>
+            </tr>
+            <tr>
+                <td>Example 2</td>
+                <td>[16,17,18,19,20,65]</td>
+                <td>isAdult (>= 18)</td>
+                <td>[18, 19, 20, 65]</td>
+            </tr>
+            <tr>
+                <td>Example 3</td>
+                <td>["apple","pomegranate"]</td>
+                <td>Short (<= 6 chars)</td>
+                <td>["apple"]</td>
+            </tr>
+        </table>
+
+        <div class="output">
+            <h3>Console Output:</h3>
+            Odd numbers: [1, 3, 5, 7]<br>
+            Children: [16, 17, 17]<br>
+            Short words: ["apple", "orange", "kiwi", "banana"]
+        </div>
+    </section>
+
+    <!-- ================= TOPIC 28: reduce() ================= -->
+    <section>
+        <h2>Topic 28: reduce() Method</h2>
+        <p class="method-name">.reduce()</p>
+        <p>Reduces an array to a SINGLE value</p>
+        
+        <div class="info-box">
+            <strong>Syntax:</strong> <code>const result = array.reduce(callback)</code><br>
+            <strong>Callback receives:</strong> accumulator, element, index, array<br>
+            <strong>Returns:</strong> Single value (sum, max, min, etc.)<br>
+            <strong>Accumulator:</strong> Running total / previous result
+        </div>
+
+        <div class="flow-diagram">
+            <div class="flow-item">
+                <strong>Array</strong><br>
+                [5, 30, 10, 25, 15, 20]
+            </div>
+            <div class="arrow">→</div>
+            <div class="flow-item">
+                <strong>reduce(sum)</strong><br>
+                5+30+10+25+15+20
+            </div>
+            <div class="arrow">→</div>
+            <div class="flow-item">
+                <strong>Single Value</strong><br>
+                105
+            </div>
+        </div>
+
+        <table>
+            <tr>
+                <th>Example</th>
+                <th>Input Array</th>
+                <th>Operation</th>
+                <th>Result</th>
+            </tr>
+            <tr>
+                <td>Example 1</td>
+                <td>[5, 30, 10, 25, 15, 20]</td>
+                <td>sum (add all)</td>
+                <td>105</td>
+            </tr>
+            <tr>
+                <td>Example 2</td>
+                <td>[75, 50, 90, 80, 65, 95]</td>
+                <td>getMax</td>
+                <td>95</td>
+            </tr>
+            <tr>
+                <td>Example 2</td>
+                <td>[75, 50, 90, 80, 65, 95]</td>
+                <td>getMin</td>
+                <td>50</td>
+            </tr>
+        </table>
+
+        <div class="output">
+            <h3>Console Output:</h3>
+            Total: $105.00<br>
+            Max: 95, Min: 50
+        </div>
+
+        <div class="example-box">
+            <strong>How reduce() works step-by-step:</strong><br>
+            Array: [5, 30, 10]<br>
+            Step 1: accumulator = 5, element = 30 → return 35<br>
+            Step 2: accumulator = 35, element = 10 → return 45<br>
+            Final result: 45
+        </div>
+    </section>
+
+    <!-- ================= COMPARISON TABLE ================= -->
+    <section>
+        <h2>Quick Comparison: forEach vs map vs filter vs reduce</h2>
+        
+        <table>
+            <tr>
+                <th>Method</th>
+                <th>Returns</th>
+                <th>Modifies Original?</th>
+                <th>Use Case</th>
+            </tr>
+            <tr>
+                <td><strong>forEach()</strong></td>
+                <td>undefined</td>
+                <td>✓ Yes</td>
+                <td>Perform action on each element</td>
+            </tr>
+            <tr>
+                <td><strong>map()</strong></td>
+                <td>New array</td>
+                <td>✗ No</td>
+                <td>Transform each element</td>
+            </tr>
+            <tr>
+                <td><strong>filter()</strong></td>
+                <td>New array</td>
+                <td>✗ No</td>
+                <td>Select elements that matches a condition</td>
+            </tr>
+            <tr>
+                <td><strong>reduce()</strong></td>
+                <td>Single value</td>
+                <td>✗ No</td>
+                <td>Combine elements into one value</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- ================= TOPIC 29: FUNCTION EXPRESSIONS ================= -->
+    <section>
+        <h2>Topic 29: Function Expressions</h2>
+        <p>Defining functions as values stored in variables</p>
+        
+        <div class="comparison-box">
+            <strong>Function Declaration vs Function Expression:</strong><br><br>
+            <strong>Declaration:</strong><br>
+            <code>function myFunction() { return "Hello"; }</code><br><br>
+            <strong>Expression:</strong><br>
+            <code>const myFunction = function() { return "Hello"; };</code>
+        </div>
+
+        <div class="syntax-box">
+        <pre>
+<span class="keyword">const</span> squares = numbers.<span class="keyword">map</span>(<span class="keyword">function</span>(element){
+    <span class="keyword">return</span> Math.pow(element, <span class="string">2</span>);
+});
+
+<span class="keyword">setTimeout</span>(<span class="keyword">function</span>(){
+    console.log(<span class="string">"function expression: Hello"</span>);
+}, <span class="string">3000</span>);
+</pre>
+            </div>
+
+        <div class="info-box">
+            <strong>Benefits:</strong>
+            <ul>
+                <li>Can be anonymous (no name needed)</li>
+                <li>Can be passed as arguments to other functions</li>
+                <li>Can be assigned to variables</li>
+                <li>Perfect for one-time use (callbacks)</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ================= TOPIC 30: ARROW FUNCTIONS ================= -->
+    <section>
+        <h2>Topic 30: Arrow Functions</h2>
+        <p>Concise syntax for writing function expressions</p>
+        
+        <div class="info-box">
+            <strong>Syntax:</strong> <code>(parameters) => expression</code><br>
+            <strong>Best for:</strong> Simple, one-time use functions (especially callbacks)
+        </div>
+
+        <div class="comparison-box">
+            <strong>Function Expression vs Arrow Function:</strong><br><br>
+            <strong>Function Expression:</strong><br>
+            <code>const square = function(x) { return x * x; };</code><br><br>
+            <strong>Arrow Function:</strong><br>
+            <code>const square = (x) => x * x;</code>
+        </div>
+
+        <div class="syntax-box">
+            <pre>
+<span class="comment">// Multiple lines (need brackets)</span>
+<span class="keyword">const</span> hello = (name, age) => {
+    console.log(<span class="string">`Hello ${name}`</span>);
+    console.log(<span class="string">`You are ${age} years old`</span>);
+};
+
+<span class="comment">// Single line (implicit return)</span>
+<span class="keyword">const</span> squares = numbers.<span class="keyword">map</span>(element => Math.pow(element, <span class="string">2</span>));
+<span class="keyword">const</span> evenNums = numbers.<span class="keyword">filter</span>((element) => element % <span class="string">2</span> === <span class="string">0</span>);
+<span class="keyword">const</span> total = numbers.<span class="keyword">reduce</span>((acc, el) => acc + el);
+</pre> 
+        </div>
+
+        <table>
+            <tr>
+                <th>Parameters</th>
+                <th>Syntax</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>No parameters</td>
+                <td><code>() => code</code></td>
+                <td><code>() => console.log("Hi")</code></td>
+            </tr>
+            <tr>
+                <td>One parameter</td>
+                <td><code>x => code</code></td>
+                <td><code>x => x * 2</code></td>
+            </tr>
+            <tr>
+                <td>Multiple parameters</td>
+                <td><code>(x, y) => code</code></td>
+                <td><code>(x, y) => x + y</code></td>
+            </tr>
+            <tr>
+                <td>One line</td>
+                <td><code>x => x * 2</code></td>
+                <td>Implicit return</td>
+            </tr>
+            <tr>
+                <td>Multiple lines</td>
+                <td><code>x => { return x * 2; }</code></td>
+                <td>Explicit return needed</td>
+            </tr>
+        </table>
+
+        <div class="output">
+            <h3>Console Outputs:</h3>
+            Hello Umer Azmi<br>
+            You are 23 years old<br>
+            Total: 21
+        </div>
+
+        <div class="info-box">
+            <strong>Benefits of Arrow Functions:</strong>
+            <ul>
+                <li>✓ Shorter, cleaner syntax</li>
+                <li>✓ Perfect for callbacks (map, filter, reduce)</li>
+                <li>✓ Implicit return for single expressions</li>
+                <li>✓ More readable code</li>
+            </ul>
+        </div>
+    </section>
+
+    <section style="background-color: white; padding: 20px; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+            <a href="4.html" style="text-decoration: none;">
+                <button style="background-color: #64748b; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+                    ← 
+                </button>
+            </a>
+            
+            <a href="index.html" style="text-decoration: none;">
+                <button style="background-color: #22c55e; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+                    🏠 Home
+                </button>
+            </a>
+            
+            <a href="6.html" style="text-decoration: none;">
+                <button style="background-color: #3b82f6; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+                     →
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <script src="5.js"></script>
+    
+    <style>
+        /* Shrinks main content when panel is open */
+        body.panel-open {
+            margin-right: 40%;
+            transition: margin-right 0.3s ease;
+        }
+        body {
+            transition: margin-right 0.3s ease;
+        }
+
+        /* Floating button - bottom right corner */
+        #jsToggleBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #22c55e;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        #jsToggleBtn:hover {
+            background-color: #16a34a;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.5);
+        }
+
+        /* Side panel */
+        #jsPanel {
+            position: fixed;
+            top: 0;
+            right: -40%;
+            width: 40%;
+            height: 100%;
+            background-color: #1e293b;
+            z-index: 999;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+        }
+        #jsPanel.open {
+            right: 0;
+        }
+
+        /* Panel header */
+        #jsPanelHeader {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #0f172a;
+            border-bottom: 2px solid #22c55e;
+            flex-shrink: 0;
+        }
+        #jsPanelTitle {
+            color: #22c55e;
+            font-size: 15px;
+            font-weight: 700;
+            font-family: monospace;
+        }
+        #jsPanelClose {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 22px;
+            cursor: pointer;
+            padding: 0 5px;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+        #jsPanelClose:hover {
+            color: white;
+        }
+
+        /* Code area */
+        #jsPanelCode {
+            overflow-y: auto;
+            flex: 1;
+            padding: 20px;
+            margin: 0;
+            font-family: monospace;
+            font-size: 13px;
+            line-height: 1.7;
+            color: #e2e8f0;
+            white-space: pre;
+        }
+
+        /* Syntax highlighting colors */
+        .js-keyword   { color: #c084fc; }
+        .js-string    { color: #86efac; }
+        .js-comment   { color: #94a3b8; font-style: italic; }
+        .js-number    { color: #fb923c; }
+        .js-function  { color: #60a5fa; }
+    </style>
+
+    <!-- Floating Button -->
+    <button id="jsToggleBtn">
+        <span>{ }</span>
+        <span id="jsToggleBtnText">View JS File</span>
+    </button>
+
+    <!-- Side Panel -->
+    <div id="jsPanel">
+        <div id="jsPanelHeader">
+            <span id="jsPanelTitle">📄 loading...</span>
+            <button id="jsPanelClose">✕</button>
+        </div>
+        <pre id="jsPanelCode">Loading...</pre>
+    </div>
+
+    <script>
+        // ---- CHANGE THIS TO YOUR JS FILE NAME ----
+        const jsFileName = "5.js";
+        // ------------------------------------------
+
+        const panel     = document.getElementById("jsPanel");
+        const toggleBtn = document.getElementById("jsToggleBtn");
+        const btnText   = document.getElementById("jsToggleBtnText");
+        const closeBtn  = document.getElementById("jsPanelClose");
+        const codeEl    = document.getElementById("jsPanelCode");
+        const titleEl   = document.getElementById("jsPanelTitle");
+
+        let loaded = false;
+
+        // Syntax highlighter - processes code token by token to avoid conflicts
+        function highlight(code) {
+            const tokens = [];
+
+            // We process the code character by character, extracting:
+            // 1. Multi-line comments  /* ... */
+            // 2. Single-line comments // ...
+            // 3. Template literals   ` ... `
+            // 4. Double-quoted strings " ... "
+            // 5. Single-quoted strings ' ... '
+            // 6. Everything else (keywords, numbers, plain code)
+
+            let i = 0;
+            let plain = "";
+
+            function flushPlain() {
+                if (!plain) return;
+
+                // Escape HTML
+                let s = plain
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;");
+
+                // Keywords
+                s = s.replace(/\b(const|let|var|function|return|if|else|for|while|do|class|new|this|typeof|instanceof|import|export|default|async|await|try|catch|finally|throw|switch|case|break|continue|extends|super|static|of|in|true|false|null|undefined)\b/g,
+                    '<span class="js-keyword">$1</span>');
+
+                // Numbers
+                s = s.replace(/\b(\d+\.?\d*)\b/g,
+                    '<span class="js-number">$1</span>');
+
+                tokens.push(s);
+                plain = "";
+            }
+
+            while (i < code.length) {
+                // Multi-line comment /* ... */
+                if (code[i] === "/" && code[i+1] === "*") {
+                    flushPlain();
+                    let end = code.indexOf("*/", i + 2);
+                    if (end === -1) end = code.length - 2;
+                    const comment = code.slice(i, end + 2)
+                        .replace(/&/g, "&amp;")
+                        .replace(/</g, "&lt;")
+                        .replace(/>/g, "&gt;");
+                    tokens.push(`<span class="js-comment">${comment}</span>`);
+                    i = end + 2;
+                    continue;
+                }
+
+                // Single-line comment // ...
+                if (code[i] === "/" && code[i+1] === "/") {
+                    flushPlain();
+                    let end = code.indexOf("\n", i);
+                    if (end === -1) end = code.length;
+                    const comment = code.slice(i, end)
+                        .replace(/&/g, "&amp;")
+                        .replace(/</g, "&lt;")
+                        .replace(/>/g, "&gt;");
+                    tokens.push(`<span class="js-comment">${comment}</span>`);
+                    i = end;
+                    continue;
+                }
+
+                // Template literal ` ... `
+                if (code[i] === "`") {
+                    flushPlain();
+                    let j = i + 1;
+                    while (j < code.length && code[j] !== "`") {
+                        if (code[j] === "\\") j++; // skip escaped char
+                        j++;
+                    }
+                    const str = code.slice(i, j + 1)
+                        .replace(/&/g, "&amp;")
+                        .replace(/</g, "&lt;")
+                        .replace(/>/g, "&gt;");
+                    tokens.push(`<span class="js-string">${str}</span>`);
+                    i = j + 1;
+                    continue;
+                }
+
+                // Double-quoted string " ... "
+                if (code[i] === '"') {
+                    flushPlain();
+                    let j = i + 1;
+                    while (j < code.length && code[j] !== '"') {
+                        if (code[j] === "\\") j++;
+                        j++;
+                    }
+                    const str = code.slice(i, j + 1)
+                        .replace(/&/g, "&amp;")
+                        .replace(/</g, "&lt;")
+                        .replace(/>/g, "&gt;");
+                    tokens.push(`<span class="js-string">${str}</span>`);
+                    i = j + 1;
+                    continue;
+                }
+
+                // Single-quoted string ' ... '
+                if (code[i] === "'") {
+                    flushPlain();
+                    let j = i + 1;
+                    while (j < code.length && code[j] !== "'") {
+                        if (code[j] === "\\") j++;
+                        j++;
+                    }
+                    const str = code.slice(i, j + 1)
+                        .replace(/&/g, "&amp;")
+                        .replace(/</g, "&lt;")
+                        .replace(/>/g, "&gt;");
+                    tokens.push(`<span class="js-string">${str}</span>`);
+                    i = j + 1;
+                    continue;
+                }
+
+                // Everything else - collect as plain text
+                plain += code[i];
+                i++;
+            }
+
+            flushPlain();
+            return tokens.join("");
+        }
+
+        // Open/close panel
+        function togglePanel() {
+            const isOpen = panel.classList.contains("open");
+
+            if (isOpen) {
+                panel.classList.remove("open");
+                document.body.classList.remove("panel-open");
+                btnText.textContent = "View JS File";
+            } else {
+                panel.classList.add("open");
+                document.body.classList.add("panel-open");
+                btnText.textContent = "Close JS File";
+
+                // Load file only once
+                if (!loaded) {
+                    titleEl.textContent = "📄 " + jsFileName;
+                    fetch(jsFileName)
+                        .then(res => {
+                            if (!res.ok) throw new Error("File not found");
+                            return res.text();
+                        })
+                        .then(code => {
+                            codeEl.innerHTML = highlight(code);
+                            loaded = true;
+                        })
+                        .catch(() => {
+                            codeEl.textContent = "❌ Could not load " + jsFileName + "\nMake sure the file is in the same folder as this HTML file.";
+                        });
+                }
+            }
+        }
+
+        toggleBtn.addEventListener("click", togglePanel);
+        closeBtn.addEventListener("click", togglePanel);
+    </script>
+</body>
+</html>

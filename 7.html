@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Modules, JSON & Error Handling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        section {
+            background-color: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #22c55e;
+            border-bottom: 3px solid #22c55e;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #059669;
+        }
+        .info-box {
+            background-color: #e0f2fe;
+            border-left: 4px solid #0284c7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .example-box {
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .critical-box {
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .react-box {
+            background-color: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #22c55e;
+            color: white;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #d63384;
+        }
+        .syntax-box {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        .syntax-box .keyword {
+            color: #c084fc;
+        }
+        .syntax-box .string {
+            color: #86efac;
+        }
+        .syntax-box .comment {
+            color: #94a3b8;
+        }
+        input[type="number"] {
+            padding: 10px;
+            margin: 10px 5px 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #22c55e;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        button:hover {
+            background-color: #16a34a;
+        }
+        label {
+            display: inline-block;
+            margin: 10px 0 5px 0;
+            font-weight: bold;
+        }
+        #resultDisplay {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            min-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1> JavaScript: Modules, JSON & Error Handling</h1>
+    <p style="text-align: center; font-size: 18px; color: #64748b;">
+        Master ES6 Modules, JSON, and Error Handling
+    </p>
+
+    <!-- ================= TOPIC 35: ES6 MODULES ================= -->
+    <section>
+        <h2>Topic 35: ES6 Modules (import/export)</h2>
+        <p>Split code into reusable files and import them where needed</p>
+
+        <h3>Named Exports (Multiple per file)</h3>
+        <div class="syntax-box">
+<span class="comment">// mathUtils.js</span>
+<span class="keyword">export const</span> PI = <span class="string">3.14159</span>;
+
+<span class="keyword">export function</span> getArea(radius){
+    <span class="keyword">return</span> PI * radius * radius;
+}
+
+<span class="comment">// main.js</span>
+<span class="keyword">import</span> {PI, getArea} <span class="keyword">from</span> <span class="string">'./mathUtils.js'</span>;
+console.log(getArea(<span class="string">10</span>));
+        </div>
+
+        <h3>Default Export (One per file)</h3>
+        <div class="syntax-box">
+<span class="comment">// Component.js</span>
+<span class="keyword">export default function</span> MyComponent(){
+    <span class="keyword">return</span> &lt;div&gt;Hello&lt;/div&gt;;
+}
+
+<span class="comment">// App.js</span>
+<span class="keyword">import</span> MyComponent <span class="keyword">from</span> <span class="string">'./Component.js'</span>;
+        </div>
+
+        <table>
+            <tr>
+                <th>Type</th>
+                <th>Export</th>
+                <th>Import</th>
+            </tr>
+            <tr>
+                <td>Named</td>
+                <td><code>export const PI = 3.14</code></td>
+                <td><code>import {PI} from './file.js'</code></td>
+            </tr>
+            <tr>
+                <td>Default</td>
+                <td><code>export default MyFunc</code></td>
+                <td><code>import MyFunc from './file.js'</code></td>
+            </tr>
+            <tr>
+                <td>All Named</td>
+                <td>-</td>
+                <td><code>import * as Utils from './file.js'</code></td>
+            </tr>
+            <tr>
+                <td>Rename</td>
+                <td>-</td>
+                <td><code>import {PI as pi} from './file.js'</code></td>
+            </tr>
+        </table>
+
+    </section>
+
+    <!-- ================= TOPIC 36: JSON ================= -->
+    <section>
+        <h2>Topic 36: JSON (JavaScript Object Notation)</h2>
+        <p>Data format for exchanging data between server and client</p>
+        
+        <div class="info-box">
+            <strong>What is JSON?</strong><br>
+            • TEXT format (not a JavaScript object)<br>
+            • Used by APIs to send/receive data<br>
+            • Must be converted to/from JavaScript objects<br>
+            • Keys must be in double quotes: <code>"name"</code>
+        </div>
+
+        <table>
+            <tr>
+                <th>Method</th>
+                <th>Purpose</th>
+                <th>Input → Output</th>
+            </tr>
+            <tr>
+                <td><code>JSON.parse()</code></td>
+                <td>Convert JSON string to JS object</td>
+                <td>JSON string → Object</td>
+            </tr>
+            <tr>
+                <td><code>JSON.stringify()</code></td>
+                <td>Convert JS object to JSON string</td>
+                <td>Object → JSON string</td>
+            </tr>
+            <tr>
+                <td><code>JSON.stringify(obj, null, 2)</code></td>
+                <td>Pretty print with indentation</td>
+                <td>Object → Formatted JSON</td>
+            </tr>
+        </table>
+
+        <div class="syntax-box">
+<span class="comment">// JSON string (from API):</span>
+<span class="keyword">const</span> jsonString = <span class="string">`{"name":"Umer Azmi","age":23}`</span>;
+
+<span class="comment">// Convert to JavaScript object:</span>
+<span class="keyword">const</span> obj = JSON.parse(jsonString);
+console.log(obj.name);  <span class="comment">// "Umer Azmi"</span>
+
+<span class="comment">// Convert JavaScript object to JSON:</span>
+<span class="keyword">const</span> person = {name: <span class="string">"Umer"</span>, age: <span class="string">23</span>};
+<span class="keyword">const</span> json = JSON.stringify(person);
+console.log(json);  <span class="comment">// '{"name":"Umer","age":23}'</span>
+        </div>
+
+        <div class="example-box">
+            <h3>Examples in Console:</h3>
+            <ul>
+                <li>Parsing JSON string to object</li>
+                <li>Converting object to JSON string</li>
+                <li>Pretty printing JSON with indentation</li>
+                <li>Working with JSON arrays</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- ================= TOPIC 37: ERROR HANDLING ================= -->
+    <section>
+        <h2>Topic 37: Error Handling (try/catch/finally)</h2>
+        <p>Handle errors gracefully without crashing your program</p>
+        
+        <div class="critical-box">
+            <strong>🔥 ESSENTIAL FOR PRODUCTION CODE!</strong> Always handle errors:
+            <ul>
+                <li>Prevents app crashes</li>
+                <li>Provides user-friendly error messages</li>
+                <li>Critical for API calls and user input validation</li>
+            </ul>
+        </div>
+
+        <h3>Interactive Division Calculator</h3>
+        <p>Try dividing by zero or entering text to see error handling in action!</p>
+
+        <label for="dividendInput">Dividend (numerator):</label><br>
+        <input type="number" id="dividendInput" placeholder="Enter dividend" value="10">
+        <br>
+        <label for="divisorInput">Divisor (denominator):</label><br>
+        <input type="number" id="divisorInput" placeholder="Enter divisor" value="2">
+        <br>
+        <button id="calculateBtn">Calculate</button>
+
+        <div id="resultDisplay">
+            Enter values and click Calculate
+        </div>
+
+        <div class="info-box">
+            <strong>Test These Error Cases:</strong>
+            <ul>
+                <li>Divide by zero → Custom error message</li>
+                <li>Enter non-numeric values → Validation error</li>
+                <li>Valid input → Successful calculation</li>
+            </ul>
+        </div>
+
+        <h3>Error Handling Keywords</h3>
+        <table>
+            <tr>
+                <th>Keyword</th>
+                <th>Purpose</th>
+                <th>When It Runs</th>
+            </tr>
+            <tr>
+                <td><code>try { }</code></td>
+                <td>Enclose code that might throw errors</td>
+                <td>Executes until error or completion</td>
+            </tr>
+            <tr>
+                <td><code>catch(error) { }</code></td>
+                <td>Handle errors from try block</td>
+                <td>Only if error occurs</td>
+            </tr>
+            <tr>
+                <td><code>finally { }</code></td>
+                <td>Cleanup code (optional)</td>
+                <td>ALWAYS runs (error or not)</td>
+            </tr>
+            <tr>
+                <td><code>throw</code></td>
+                <td>Manually create custom errors</td>
+                <td>When you need to throw error</td>
+            </tr>
+        </table>
+
+        <h3>Error Object</h3>
+        <div class="info-box">
+            <strong>Error object properties:</strong><br>
+            • <code>error.name</code> - Type of error (Error, TypeError, etc.)<br>
+            • <code>error.message</code> - Error description<br>
+            • <code>error.stack</code> - Stack trace for debugging
+        </div>
+
+        <div class="syntax-box">
+<span class="keyword">try</span>{
+    <span class="keyword">if</span>(divisor === <span class="string">0</span>){
+        <span class="comment">// throw = manually creates error and jumps to catch</span>
+        <span class="keyword">throw new Error</span>(<span class="string">"Can't divide by zero!"</span>);
+    }
+    <span class="keyword">const</span> result = dividend / divisor;
+}
+<span class="keyword">catch</span>(error){
+    <span class="comment">// Handle the error</span>
+    console.error(error.message);
+}
+<span class="keyword">finally</span>{
+    <span class="comment">// Always runs (cleanup)</span>
+    console.log(<span class="string">"Done"</span>);
+}
+        </div>
+
+        <h3>Common Error Types</h3>
+        <table>
+            <tr>
+                <th>Error Type</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td><code>Error</code></td>
+                <td>Generic error (base class)</td>
+                <td>Custom errors you create</td>
+            </tr>
+            <tr>
+                <td><code>SyntaxError</code></td>
+                <td>Invalid code syntax</td>
+                <td>Missing bracket, typo</td>
+            </tr>
+            <tr>
+                <td><code>ReferenceError</code></td>
+                <td>Variable doesn't exist</td>
+                <td>Using undefined variable</td>
+            </tr>
+            <tr>
+                <td><code>TypeError</code></td>
+                <td>Wrong data type</td>
+                <td>Calling method on null</td>
+            </tr>
+            <tr>
+                <td><code>RangeError</code></td>
+                <td>Number outside valid range</td>
+                <td>Array with negative length</td>
+            </tr>
+        </table>
+
+        <div class="example-box">
+            <h3>Why Use try/catch?</h3>
+            <strong>Without try/catch:</strong> Program crashes, rest of code doesn't run<br>
+            <strong>With try/catch:</strong> Error is caught, program continues running
+        </div>
+
+    </section>
+
+    <section style="background-color: white; padding: 20px; margin: 20px auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); width: fit-content; display: flex; justify-content: center; ">
+        <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+            <a href="6.html" style="text-decoration: none;">
+                <button style="background-color: #64748b; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+                    ← 
+                </button>
+            </a>
+            
+            <a href="index.html" style="text-decoration: none;">
+                <button style="background-color: #22c55e; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+                    🏠 Home
+                </button>
+            </a>
+            
+            <a href="8.html" style="text-decoration: none;">
+                <button style="background-color: #3b82f6; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+                     →
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <script src="7.js"></script>
+</body>
+</html>

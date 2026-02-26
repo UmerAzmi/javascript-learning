@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://raw.githubusercontent.com/UmerAzmi/umerazmi/4808b388a23a62988740c6eb078b6d75cab148a9/imgs/js.png">
+    <title>JavaScript - Object-Oriented Programming</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        section {
+            background-color: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #22c55e;
+            border-bottom: 3px solid #22c55e;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #059669;
+        }
+        .info-box {
+            background-color: #e0f2fe;
+            border-left: 4px solid #0284c7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .example-box {
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .critical-box {
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #22c55e;
+            color: white;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #d63384;
+        }
+        .syntax-box {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        .syntax-box .keyword {
+            color: #c084fc;
+        }
+        .syntax-box .string {
+            color: #86efac;
+        }
+        .syntax-box .comment {
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <h1> JavaScript: Object-Oriented Programming</h1>
+
+    <section style="border: 2px dashed #22c55e; padding: 15px 25px; margin: 20px 0; border-radius: 8px; text-align: center; background-color: transparent;">
+        <p style="color: #64748b; font-size: 17px; margin: 0 0 6px 0;">📄 Detailed explanations & code examples are in the <strong style="color: #22c55e;">JavaScript (.js) file</strong></p>
+        <p style="color: #64748b; font-size: 17px; margin: 0;">👇 Click the <strong style="color: #22c55e;">{ } button</strong> at the bottom right to view it</p>
+    </section>
+
+    <p style="text-align: center; font-size: 18px; color: #64748b;">
+        Master Objects, Constructors, Classes, and Destructuring
+    </p>
+
+    <!-- ================= TOPIC 31: OBJECTS ================= -->
+    <section>
+        <h2>Topic 31: Objects</h2>
+        <p>Objects are collections of related properties and methods representing real-world entities</p>
+        
+        <div class="critical-box">
+            <strong>Objects are the foundation of JavaScript:</strong>
+            <ul>
+                <li>Component props are objects</li>
+                <li>Component state is stored in objects</li>
+                <li>API responses are objects</li>
+                <li>Everything in JS (except primitives) is an object!</li>
+            </ul>
+        </div>
+
+        <table>
+            <tr>
+                <th>Operation</th>
+                <th>Syntax</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>Create Object</td>
+                <td><code>const obj = {}</code></td>
+                <td><code>const person = {name: "Umer"}</code></td>
+            </tr>
+            <tr>
+                <td>Access Property</td>
+                <td><code>object.property</code></td>
+                <td><code>person.firstName</code></td>
+            </tr>
+            <tr>
+                <td>Bracket Notation</td>
+                <td><code>object["property"]</code></td>
+                <td><code>person["lastName"]</code></td>
+            </tr>
+            <tr>
+                <td>Add Property</td>
+                <td><code>object.newProp = value</code></td>
+                <td><code>person.city = "Mumbai"</code></td>
+            </tr>
+            <tr>
+                <td>Delete Property</td>
+                <td><code>delete object.property</code></td>
+                <td><code>delete person.city</code></td>
+            </tr>
+            <tr>
+                <td>Call Method</td>
+                <td><code>object.method()</code></td>
+                <td><code>person.sayHello()</code></td>
+            </tr>
+        </table>
+
+        <div class="info-box">
+            <strong>this Keyword in Objects:</strong><br>
+            • <code>this</code> refers to the object the method belongs to<br>
+            • Works with regular functions: <code>sayHello: function(){}</code><br>
+            • DOESN'T work with arrow functions: <code>sayHello: () => {}</code><br>
+            • Arrow functions reference the window object instead
+        </div>
+
+        <div class="example-box">
+            <h3>Examples in Console:</h3>
+            <ul>
+                <li><strong>Example 1:</strong> Basic object with properties and methods</li>
+                <li><strong>Example 2:</strong> Multiple similar objects</li>
+                <li><strong>Example 3:</strong> Using 'this' keyword in object methods</li>
+                <li><strong>Example 4:</strong> Nested objects and arrays inside objects</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ================= TOPIC 32: CONSTRUCTOR FUNCTIONS ================= -->
+    <section>
+        <h2>Topic 32: Constructor Functions</h2>
+        <p>Blueprints for creating multiple similar objects (pre-ES6 way)</p>
+        
+        <div class="info-box">
+            <strong>What is a Constructor?</strong><br>
+            A special function that creates and initializes objects. Think of it as a template or factory that produces similar objects with the same structure but different values.
+        </div>
+
+        <div class="syntax-box">
+<span class="comment">// Constructor Function (starts with capital letter by convention)</span>
+<span class="keyword">function</span> Car(make, model, year, color){
+    <span class="keyword">this</span>.make = make;      <span class="comment">// 'this' refers to new object</span>
+    <span class="keyword">this</span>.model = model;
+    <span class="keyword">this</span>.year = year;
+    <span class="keyword">this</span>.color = color;
+}
+
+<span class="comment">// Create instances with 'new' keyword</span>
+<span class="keyword">const</span> car1 = <span class="keyword">new</span> Car(<span class="string">"Ford"</span>, <span class="string">"Mustang"</span>, <span class="string">2024</span>, <span class="string">"red"</span>);
+        </div>
+
+        <table>
+            <tr>
+                <th>Keyword</th>
+                <th>Purpose</th>
+                <th>Explanation</th>
+            </tr>
+            <tr>
+                <td><code>function Car()</code></td>
+                <td>Define Constructor</td>
+                <td>Creates the blueprint/template</td>
+            </tr>
+            <tr>
+                <td><code>this</code></td>
+                <td>Reference New Object</td>
+                <td>Points to the object being created</td>
+            </tr>
+            <tr>
+                <td><code>new</code></td>
+                <td>Create Instance</td>
+                <td>Creates a new object from constructor</td>
+            </tr>
+        </table>
+
+        <div class="example-box">
+            <strong>What 'new' keyword does:</strong>
+            <ol>
+                <li>Creates an empty object <code>{}</code></li>
+                <li>Sets <code>this</code> to point to that new object</li>
+                <li>Calls the constructor function</li>
+                <li>Returns the newly created object</li>
+            </ol>
+        </div>
+
+        <div class="info-box">
+            <strong>Convention:</strong> Constructor names start with a capital letter (Car, Person, Product) to distinguish them from regular functions.
+        </div>
+    </section>
+
+    <!-- ================= TOPIC 33: CLASSES ================= -->
+    <section>
+        <h2>Topic 33: Classes (ES6)</h2>
+        <p>Modern, cleaner syntax for creating objects (introduced in ES6/2015)</p>
+        
+        <div class="critical-box">
+            <strong>🔥 Classes vs Constructors:</strong><br>
+            Classes are the MODERN way to create objects. They're "syntactic sugar" over constructor functions - they look different but work similarly under the hood. Always use classes in new code!
+        </div>
+
+        <div class="syntax-box">
+<span class="keyword">class</span> Product {
+    <span class="comment">// constructor method (runs automatically)</span>
+    <span class="keyword">constructor</span>(name, price){
+        <span class="keyword">this</span>.name = name;
+        <span class="keyword">this</span>.price = price;
+    }
+    
+    <span class="comment">// Methods (no 'function' keyword needed)</span>
+    displayProduct(){
+        console.log(<span class="string">`Product: ${<span class="keyword">this</span>.name}`</span>);
+    }
+}
+
+<span class="keyword">const</span> product1 = <span class="keyword">new</span> Product(<span class="string">"Shirt"</span>, <span class="string">19.99</span>);
+        </div>
+
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Constructor Function</th>
+                <th>Class (ES6)</th>
+            </tr>
+            <tr>
+                <td>Keyword</td>
+                <td><code>function</code></td>
+                <td><code>class</code></td>
+            </tr>
+            <tr>
+                <td>Constructor</td>
+                <td>Function itself</td>
+                <td><code>constructor()</code> method</td>
+            </tr>
+            <tr>
+                <td>Methods</td>
+                <td>Need <code>function</code> keyword</td>
+                <td>No <code>function</code> keyword</td>
+            </tr>
+            <tr>
+                <td>Inheritance</td>
+                <td>Complex (prototypes)</td>
+                <td>Simple (<code>extends</code>)</td>
+            </tr>
+            <tr>
+                <td>Modern?</td>
+                <td>❌ Old way</td>
+                <td>✅ Modern standard</td>
+            </tr>
+        </table>
+
+        <h3>Class Inheritance</h3>
+        <div class="info-box">
+            <strong>Inheritance Keywords:</strong><br>
+            • <code>extends</code> - Makes class inherit from parent<br>
+            • <code>super()</code> - Calls parent class constructor<br>
+            • Must call <code>super()</code> BEFORE using <code>this</code> in child
+        </div>
+
+        <h3>Static Methods</h3>
+        <div class="info-box">
+            <strong>Static vs Instance:</strong><br>
+            • <strong>Static:</strong> Called on CLASS itself → <code>MathHelper.getArea(10)</code><br>
+            • <strong>Instance:</strong> Called on OBJECTS → <code>product1.displayProduct()</code><br>
+            • Use static for utility functions that don't need object data
+        </div>
+    </section>
+
+    <!-- ================= TOPIC 34: DESTRUCTURING ================= -->
+    <section>
+        <h2>Topic 34: Destructuring</h2>
+        <p>Extract values from arrays and objects into separate variables</p>
+        
+        <div class="critical-box">
+            <strong>You'll use destructuring constantly:</strong>
+            <ul>
+                <li>Props: <code>function MyComponent({name, age})</code></li>
+                <li>useState: <code>const [count, setCount] = useState(0)</code></li>
+                <li>Array/Object data manipulation</li>
+            </ul>
+        </div>
+
+        <h3>Array Destructuring</h3>
+        <div class="syntax-box">
+<span class="keyword">const</span> colors = [<span class="string">"red"</span>, <span class="string">"green"</span>, <span class="string">"blue"</span>];
+
+<span class="comment">// Extract by position</span>
+<span class="keyword">const</span> [first, second, third] = colors;
+
+<span class="comment">// Skip elements</span>
+<span class="keyword">const</span> [color1, , color3] = colors;  <span class="comment">// Skips "green"</span>
+
+<span class="comment">// Rest operator</span>
+<span class="keyword">const</span> [primary, ...others] = colors;
+        </div>
+
+        <h3>Object Destructuring</h3>
+        <div class="syntax-box">
+<span class="keyword">const</span> person = {firstName: <span class="string">"Umer"</span>, age: <span class="string">23</span>};
+
+<span class="comment">// Extract by property name</span>
+<span class="keyword">const</span> {firstName, age} = person;
+
+<span class="comment">// Rename variables</span>
+<span class="keyword">const</span> {firstName: fName} = person;
+
+<span class="comment">// Default values</span>
+<span class="keyword">const</span> {country = <span class="string">"India"</span>} = person;
+        </div>
+
+        <table>
+            <tr>
+                <th>Type</th>
+                <th>Syntax</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>Array</td>
+                <td><code>[var1, var2]</code></td>
+                <td><code>const [x, y] = [1, 2]</code></td>
+            </tr>
+            <tr>
+                <td>Object</td>
+                <td><code>{prop1, prop2}</code></td>
+                <td><code>const {name, age} = person</code></td>
+            </tr>
+            <tr>
+                <td>Skip Array Item</td>
+                <td><code>[var1, , var3]</code></td>
+                <td><code>const [a, , c] = [1,2,3]</code></td>
+            </tr>
+            <tr>
+                <td>Rename Object</td>
+                <td><code>{prop: newName}</code></td>
+                <td><code>const {name: n} = person</code></td>
+            </tr>
+            <tr>
+                <td>Default Value</td>
+                <td><code>{prop = value}</code></td>
+                <td><code>const {city = "NYC"} = person</code></td>
+            </tr>
+            <tr>
+                <td>Function Params</td>
+                <td><code>fn({prop1, prop2})</code></td>
+                <td><code>function({name, age}){}</code></td>
+            </tr>
+        </table>
+
+        <div class="info-box">
+            <strong>React Pattern:</strong> Destructuring props makes components cleaner!
+            <div class="syntax-box" style="margin-top: 10px;">
+<span class="comment">// Instead of this:</span>
+<span class="keyword">function</span> MyComponent(props) {
+    <span class="keyword">return</span> &lt;h1&gt;{props.name}&lt;/h1&gt;;
+}
+
+<span class="comment">// Use destructuring:</span>
+<span class="keyword">function</span> MyComponent({name}) {
+    <span class="keyword">return</span> &lt;h1&gt;{name}&lt;/h1&gt;;
+}
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: white; padding: 20px; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+            <a href="5.html" style="text-decoration: none;">
+                <button style="background-color: #64748b; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+                    ← 
+                </button>
+            </a>
+            
+            <a href="index.html" style="text-decoration: none;">
+                <button style="background-color: #22c55e; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+                    🏠 Home
+                </button>
+            </a>
+            
+            <a href="7.html" style="text-decoration: none;">
+                <button style="background-color: #3b82f6; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+                     →
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <script src="6.js"></script>
+
+    <style>
+        /* Shrinks main content when panel is open */
+        body.panel-open {
+            margin-right: 40%;
+            transition: margin-right 0.3s ease;
+        }
+        body {
+            transition: margin-right 0.3s ease;
+        }
+
+        /* Floating button - bottom right corner */
+        #jsToggleBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #22c55e;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        #jsToggleBtn:hover {
+            background-color: #16a34a;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.5);
+        }
+
+        /* Side panel */
+        #jsPanel {
+            position: fixed;
+            top: 0;
+            right: -40%;
+            width: 40%;
+            height: 100%;
+            background-color: #1e293b;
+            z-index: 999;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+        }
+        #jsPanel.open {
+            right: 0;
+        }
+
+        /* Panel header */
+        #jsPanelHeader {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #0f172a;
+            border-bottom: 2px solid #22c55e;
+            flex-shrink: 0;
+        }
+        #jsPanelTitle {
+            color: #22c55e;
+            font-size: 15px;
+            font-weight: 700;
+            font-family: monospace;
+        }
+        #jsPanelClose {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 22px;
+            cursor: pointer;
+            padding: 0 5px;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+        #jsPanelClose:hover {
+            color: white;
+        }
+
+        /* Code area */
+        #jsPanelCode {
+            overflow-y: auto;
+            flex: 1;
+            padding: 20px;
+            margin: 0;
+            font-family: monospace;
+            font-size: 13px;
+            line-height: 1.7;
+            color: #e2e8f0;
+            white-space: pre;
+        }
+
+        /* Syntax highlighting colors */
+        .js-keyword   { color: #c084fc; }
+        .js-string    { color: #86efac; }
+        .js-comment   { color: #94a3b8; font-style: italic; }
+        .js-number    { color: #fb923c; }
+        .js-function  { color: #60a5fa; }
+    </style>
+
+    <!-- Floating Button -->
+    <button id="jsToggleBtn">
+        <span>{ }</span>
+        <span id="jsToggleBtnText">View JS File</span>
+    </button>
+
+    <!-- Side Panel -->
+    <div id="jsPanel">
+        <div id="jsPanelHeader">
+            <span id="jsPanelTitle">📄 loading...</span>
+            <button id="jsPanelClose">✕</button>
+        </div>
+        <pre id="jsPanelCode">Loading...</pre>
+    </div>
+
+    <script>
+        // ---- CHANGE THIS TO YOUR JS FILE NAME ----
+        const jsFileName = "6.js";
+        // ------------------------------------------
+
+        const panel     = document.getElementById("jsPanel");
+        const toggleBtn = document.getElementById("jsToggleBtn");
+        const btnText   = document.getElementById("jsToggleBtnText");
+        const closeBtn  = document.getElementById("jsPanelClose");
+        const codeEl    = document.getElementById("jsPanelCode");
+        const titleEl   = document.getElementById("jsPanelTitle");
+
+        let loaded = false;
+
+        // Syntax highlighter - processes code token by token to avoid conflicts
+        function highlight(code) {
+            const tokens = [];
+
+            // We process the code character by character, extracting:
+            // 1. Multi-line comments  /* ... */
+            // 2. Single-line comments // ...
+            // 3. Template literals   ` ... `
+            // 4. Double-quoted strings " ... "
+            // 5. Single-quoted strings ' ... '
+            // 6. Everything else (keywords, numbers, plain code)
+
+            let i = 0;
+            let plain = "";
+
+            function flushPlain() {
+                if (!plain) return;
+
+                // Escape HTML
+                let s = plain
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;");
+
+                // Keywords
+                s = s.replace(/\b(const|let|var|function|return|if|else|for|while|do|class|new|this|typeof|instanceof|import|export|default|async|await|try|catch|finally|throw|switch|case|break|continue|extends|super|static|of|in|true|false|null|undefined)\b/g,
+                    '<span class="js-keyword">$1</span>');
+
+                // Numbers
+                s = s.replace(/\b(\d+\.?\d*)\b/g,
+                    '<span class="js-number">$1</span>');
+
+                tokens.push(s);
+                plain = "";
+            }
+
+            while (i < code.length) {
+                // Multi-line comment /* ... */
+                if (code[i] === "/" && code[i+1] === "*") {
+                    flushPlain();
+                    let end = code.indexOf("*/", i + 2);
+                    if (end === -1) end = code.length - 2;
+                    const comment = code.slice(i, end + 2)
+                        .replace(/&/g, "&amp;")
+                        .replace(/</g, "&lt;")
+                        .replace(/>/g, "&gt;");
+                    tokens.push(`<span class="js-comment">${comment}</span>`);
+                    i = end + 2;
+                    continue;
+                }
+
+                // Single-line comment // ...
+                if (code[i] === "/" && code[i+1] === "/") {
+                    flushPlain();
+                    let end = code.indexOf("\n", i);
+                    if (end === -1) end = code.length;
+                    const comment = code.slice(i, end)
+                        .replace(/&/g, "&amp;")
+                        .replace(/</g, "&lt;")
+                        .replace(/>/g, "&gt;");
+                    tokens.push(`<span class="js-comment">${comment}</span>`);
+                    i = end;
+                    continue;
+                }
+
+                // Template literal ` ... `
+                if (code[i] === "`") {
+                    flushPlain();
+                    let j = i + 1;
+                    while (j < code.length && code[j] !== "`") {
+                        if (code[j] === "\\") j++; // skip escaped char
+                        j++;
+                    }
+                    const str = code.slice(i, j + 1)
+                        .replace(/&/g, "&amp;")
+                        .replace(/</g, "&lt;")
+                        .replace(/>/g, "&gt;");
+                    tokens.push(`<span class="js-string">${str}</span>`);
+                    i = j + 1;
+                    continue;
+                }
+
+                // Double-quoted string " ... "
+                if (code[i] === '"') {
+                    flushPlain();
+                    let j = i + 1;
+                    while (j < code.length && code[j] !== '"') {
+                        if (code[j] === "\\") j++;
+                        j++;
+                    }
+                    const str = code.slice(i, j + 1)
+                        .replace(/&/g, "&amp;")
+                        .replace(/</g, "&lt;")
+                        .replace(/>/g, "&gt;");
+                    tokens.push(`<span class="js-string">${str}</span>`);
+                    i = j + 1;
+                    continue;
+                }
+
+                // Single-quoted string ' ... '
+                if (code[i] === "'") {
+                    flushPlain();
+                    let j = i + 1;
+                    while (j < code.length && code[j] !== "'") {
+                        if (code[j] === "\\") j++;
+                        j++;
+                    }
+                    const str = code.slice(i, j + 1)
+                        .replace(/&/g, "&amp;")
+                        .replace(/</g, "&lt;")
+                        .replace(/>/g, "&gt;");
+                    tokens.push(`<span class="js-string">${str}</span>`);
+                    i = j + 1;
+                    continue;
+                }
+
+                // Everything else - collect as plain text
+                plain += code[i];
+                i++;
+            }
+
+            flushPlain();
+            return tokens.join("");
+        }
+
+        // Open/close panel
+        function togglePanel() {
+            const isOpen = panel.classList.contains("open");
+
+            if (isOpen) {
+                panel.classList.remove("open");
+                document.body.classList.remove("panel-open");
+                btnText.textContent = "View JS File";
+            } else {
+                panel.classList.add("open");
+                document.body.classList.add("panel-open");
+                btnText.textContent = "Close JS File";
+
+                // Load file only once
+                if (!loaded) {
+                    titleEl.textContent = "📄 " + jsFileName;
+                    fetch(jsFileName)
+                        .then(res => {
+                            if (!res.ok) throw new Error("File not found");
+                            return res.text();
+                        })
+                        .then(code => {
+                            codeEl.innerHTML = highlight(code);
+                            loaded = true;
+                        })
+                        .catch(() => {
+                            codeEl.textContent = "❌ Could not load " + jsFileName + "\nMake sure the file is in the same folder as this HTML file.";
+                        });
+                }
+            }
+        }
+
+        toggleBtn.addEventListener("click", togglePanel);
+        closeBtn.addEventListener("click", togglePanel);
+    </script>
+</body>
+</html>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - DOM Manipulation & Events</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        section {
+            background-color: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #22c55e;
+            border-bottom: 3px solid #22c55e;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #059669;
+        }
+        .info-box {
+            background-color: #e0f2fe;
+            border-left: 4px solid #0284c7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .example-box {
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .demo-box {
+            background-color: #f0f0f0;
+            border: 2px solid #22c55e;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #22c55e;
+            color: white;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #d63384;
+        }
+        .syntax-box {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        .syntax-box .keyword {
+            color: #c084fc;
+        }
+        .syntax-box .string {
+            color: #86efac;
+        }
+        .syntax-box .comment {
+            color: #94a3b8;
+        }
+        button {
+            background-color: #22c55e;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button:hover {
+            background-color: #16a34a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        #myBox {
+            width: 200px;
+            height: 200px;
+            background-color: lightgreen;
+            text-align: center;
+            line-height: 200px;
+            font-size: 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        #movableBox {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+            font-size: 40px;
+            border-radius: 8px;
+            position: relative;
+            transition: all 0.1s;
+        }
+        .slider-container {
+            max-width: 500px;
+            margin: 20px auto;
+            position: relative;
+        }
+        .slides img {
+            width: 100%;
+            border-radius: 8px;
+            display: none;
+        }
+        .slides img.displaySlide {
+            display: block;
+        }
+        .slider-buttons {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎨 JavaScript: DOM Manipulation & Events</h1>
+    <p style="text-align: center; font-size: 18px; color: #64748b;">
+        Create, Manipulate, and Interact with HTML Elements
+    </p>
+
+    <!-- ================= TOPIC 43: DOM ELEMENT CREATION ================= -->
+    <section>
+        <h2>Topic 43: DOM Element Creation</h2>
+        <p>Dynamically create and add HTML elements using JavaScript</p>
+        
+        <h3>3-Step Process</h3>
+        <table>
+            <tr>
+                <th>Step</th>
+                <th>Method</th>
+                <th>Purpose</th>
+            </tr>
+            <tr>
+                <td>1. Create</td>
+                <td><code>document.createElement(tag)</code></td>
+                <td>Creates new element</td>
+            </tr>
+            <tr>
+                <td>2. Configure</td>
+                <td><code>.textContent, .style, .id</code></td>
+                <td>Set properties/attributes</td>
+            </tr>
+            <tr>
+                <td>3. Add to DOM</td>
+                <td><code>.append(), .prepend(), .insertBefore()</code></td>
+                <td>Place element in page</td>
+            </tr>
+        </table>
+
+        <h3>Positioning Methods</h3>
+        <table>
+            <tr>
+                <th>Method</th>
+                <th>Where Element Goes</th>
+            </tr>
+            <tr>
+                <td><code>.append()</code></td>
+                <td>End of parent (last child)</td>
+            </tr>
+            <tr>
+                <td><code>.prepend()</code></td>
+                <td>Beginning of parent (first child)</td>
+            </tr>
+            <tr>
+                <td><code>.insertBefore(new, ref)</code></td>
+                <td>Before reference element</td>
+            </tr>
+            <tr>
+                <td><code>.removeChild()</code></td>
+                <td>Removes element from DOM</td>
+            </tr>
+        </table>
+
+        <div class="example-box">
+            <h3>Examples in JavaScript File:</h3>
+            <ul>
+                <li><strong>Example 1:</strong> Creating an h1 element</li>
+                <li><strong>Example 2:</strong> Creating a list item (li) element</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ================= TOPIC 44: MOUSE EVENTS ================= -->
+    <section>
+        <h2>Topic 44: Event Listeners - Mouse Events</h2>
+        <p>Make elements interactive with mouse events</p>
+        
+        <h3>Common Mouse Events</h3>
+        <table>
+            <tr>
+                <th>Event</th>
+                <th>When It Fires</th>
+            </tr>
+            <tr>
+                <td><code>click</code></td>
+                <td>Element is clicked</td>
+            </tr>
+            <tr>
+                <td><code>mouseover</code></td>
+                <td>Mouse enters element</td>
+            </tr>
+            <tr>
+                <td><code>mouseout</code></td>
+                <td>Mouse leaves element</td>
+            </tr>
+            <tr>
+                <td><code>mousedown</code></td>
+                <td>Mouse button pressed down</td>
+            </tr>
+            <tr>
+                <td><code>mouseup</code></td>
+                <td>Mouse button released</td>
+            </tr>
+        </table>
+
+        <div class="demo-box">
+            <h3>Interactive Demo</h3>
+            <div id="myBox">Click Me 😀</div>
+            <p style="margin-top: 15px; color: #64748b;">Hover over and click the box!</p>
+        </div>
+
+        <div class="info-box">
+            <strong>event.target:</strong> The element that triggered the event<br>
+            Allows you to modify the clicked/hovered element dynamically
+        </div>
+    </section>
+
+    <!-- ================= TOPIC 45: KEYBOARD EVENTS ================= -->
+    <section>
+        <h2>Topic 45: Event Listeners - Keyboard Events</h2>
+        <p>Respond to keyboard input and arrow keys</p>
+        
+        <h3>Keyboard Events</h3>
+        <table>
+            <tr>
+                <th>Event</th>
+                <th>When It Fires</th>
+            </tr>
+            <tr>
+                <td><code>keydown</code></td>
+                <td>Key is pressed down</td>
+            </tr>
+            <tr>
+                <td><code>keyup</code></td>
+                <td>Key is released</td>
+            </tr>
+            <tr>
+                <td><code>keypress</code></td>
+                <td>Key is pressed (deprecated)</td>
+            </tr>
+        </table>
+
+        <div class="demo-box">
+            <h3>Arrow Keys Demo</h3>
+            <div id="movableBox">😀</div>
+            <p style="margin-top: 15px; color: #64748b;">Use arrow keys to move the box!</p>
+        </div>
+
+        <div class="info-box">
+            <strong>Key Properties:</strong><br>
+            • <code>event.key</code> - The key that was pressed (e.g., "a", "Enter", "ArrowUp")<br>
+            • <code>event.preventDefault()</code> - Prevents default browser action (e.g., scrolling)<br>
+            • <code>.startsWith()</code> - Checks if string starts with specified characters
+        </div>
+    </section>
+
+    <!-- ================= TOPIC 46: SHOW/HIDE ================= -->
+    <section>
+        <h2>Topic 46: Show/Hide Elements</h2>
+        <p>Two methods to hide elements: display and visibility</p>
+        
+        <table>
+            <tr>
+                <th>Method</th>
+                <th>Hidden Value</th>
+                <th>Visible Value</th>
+                <th>Takes Space?</th>
+            </tr>
+            <tr>
+                <td><code>display</code></td>
+                <td><code>none</code></td>
+                <td><code>block</code></td>
+                <td>❌ No (removes from layout)</td>
+            </tr>
+            <tr>
+                <td><code>visibility</code></td>
+                <td><code>hidden</code></td>
+                <td><code>visible</code></td>
+                <td>✅ Yes (keeps space)</td>
+            </tr>
+        </table>
+
+        <div class="example-box">
+            <strong>When to use which:</strong><br>
+            • <strong>display: none</strong> - When you want elements below to move up<br>
+            • <strong>visibility: hidden</strong> - When you want to keep the space occupied
+        </div>
+    </section>
+
+    <!-- ================= TOPIC 47: IMAGE SLIDER ================= -->
+    <section>
+        <h2>Topic 47: Image Slider</h2>
+        <p>Auto-cycling image slider with manual controls</p>
+        
+        <h3>Key Methods Explained</h3>
+        <table>
+            <tr>
+                <th>Method/Property</th>
+                <th>Simple Explanation</th>
+            </tr>
+            <tr>
+                <td><code>querySelectorAll()</code></td>
+                <td>Gets all matching elements as NodeList</td>
+            </tr>
+            <tr>
+                <td><code>DOMContentLoaded</code></td>
+                <td>Event fires when HTML is fully loaded</td>
+            </tr>
+            <tr>
+                <td><code>classList.add()</code></td>
+                <td>Adds a CSS class to element</td>
+            </tr>
+            <tr>
+                <td><code>classList.remove()</code></td>
+                <td>Removes a CSS class from element</td>
+            </tr>
+            <tr>
+                <td><code>setInterval(fn, ms)</code></td>
+                <td>Repeats function every X milliseconds</td>
+            </tr>
+            <tr>
+                <td><code>clearInterval(id)</code></td>
+                <td>Stops the setInterval timer</td>
+            </tr>
+            <tr>
+                <td><code>.forEach()</code></td>
+                <td>Loops through each element in collection</td>
+            </tr>
+            <tr>
+                <td><code>.length</code></td>
+                <td>Number of elements in collection</td>
+            </tr>
+        </table>
+
+        <div class="example-box">
+            <h3>How It Works:</h3>
+            1. Load all images into NodeList<br>
+            2. Show first image on page load<br>
+            3. Auto-advance every 5 seconds<br>
+            4. Stop auto-advance when user clicks prev/next<br>
+            5. Wrap around at beginning/end
+        </div>
+    </section>
+
+    <!-- ================= TOPIC 48: QUERYSELECTOR ================= -->
+    <section>
+        <h2>Topic 48: querySelector vs querySelectorAll</h2>
+        <p>Two methods to select elements using CSS selectors</p>
+        
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>querySelector()</th>
+                <th>querySelectorAll()</th>
+            </tr>
+            <tr>
+                <td>Returns</td>
+                <td>FIRST matching element</td>
+                <td>ALL matching elements (NodeList)</td>
+            </tr>
+            <tr>
+                <td>If no match</td>
+                <td>null</td>
+                <td>Empty NodeList []</td>
+            </tr>
+            <tr>
+                <td>Use case</td>
+                <td>Single element (usually ID)</td>
+                <td>Multiple elements (class, tag)</td>
+            </tr>
+            <tr>
+                <td>Can loop?</td>
+                <td>No (single element)</td>
+                <td>Yes (forEach, for loop)</td>
+            </tr>
+        </table>
+
+        <div class="syntax-box">
+<span class="comment">// querySelector - Returns ONE element</span>
+<span class="keyword">const</span> header = document.querySelector(<span class="string">"#header"</span>);  <span class="comment">// ID</span>
+<span class="keyword">const</span> firstBox = document.querySelector(<span class="string">".box"</span>);  <span class="comment">// Class</span>
+
+<span class="comment">// querySelectorAll - Returns ALL elements</span>
+<span class="keyword">const</span> allBoxes = document.querySelectorAll(<span class="string">".box"</span>);
+allBoxes.forEach(box => {
+    box.style.color = <span class="string">"red"</span>;  <span class="comment">// Apply to each</span>
+});
+        </div>
+
+        <div class="info-box">
+            <strong>CSS Selectors work:</strong> .class, #id, tag, [attribute], parent > child, etc.
+        </div>
+    </section>
+
+    <!-- ================= TOPIC 49: QUICK REFERENCE ================= -->
+    <section>
+        <h2>Topic 49: Quick Reference - Useful Methods</h2>
+        <p>One-line explanations for commonly used methods</p>
+        
+        <table>
+            <tr>
+                <th>Method/Property</th>
+                <th>Simple Explanation</th>
+            </tr>
+            <tr>
+                <td><code>.toFixed(n)</code></td>
+                <td>Rounds number to n decimal places, returns string</td>
+            </tr>
+            <tr>
+                <td><code>location.reload()</code></td>
+                <td>Reloads/refreshes the current page</td>
+            </tr>
+            <tr>
+                <td><code>isNaN()</code></td>
+                <td>Checks if value is Not a Number (true/false)</td>
+            </tr>
+            <tr>
+                <td><code>.scrollWidth</code></td>
+                <td>Total width of content including hidden overflow</td>
+            </tr>
+            <tr>
+                <td><code>.clientWidth</code></td>
+                <td>Visible width of element (excludes scrollbar)</td>
+            </tr>
+            <tr>
+                <td><code>.innerHTML</code></td>
+                <td>Gets/sets HTML content inside element (including tags)</td>
+            </tr>
+            <tr>
+                <td><code>getComputedStyle()</code></td>
+                <td>Gets actual computed CSS styles of element</td>
+            </tr>
+        </table>
+
+        <div class="example-box">
+            Check the JavaScript file for usage examples of each method!
+        </div>
+    </section>
+    <section style="background-color: white; padding: 20px; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+            <a href="8.html" style="text-decoration: none;">
+                <button style="background-color: #64748b; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+                    ← 
+                </button>
+            </a>
+            
+            <a href="index.html" style="text-decoration: none;">
+                <button style="background-color: #22c55e; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+                    🏠 Home
+                </button>
+            </a>
+            
+            <button title="End" style="background-color: #cccccc; color: #666666; padding: 12px 24px; border: none; border-radius: 4px; cursor: not-allowed; font-size: 16px; opacity: 0.6;">
+                →
+            </button>
+                <!-- <button disabled style="background-color: #3b82f6; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+                     →
+                </button> -->
+            </a>
+        </div>
+    </section>
+
+    <!-- Link to JavaScript file -->
+    <script src="javascript-dom-events.js"></script>
+</body>
+</html>

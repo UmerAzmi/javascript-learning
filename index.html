@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Learning Journey - Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f8f9fa;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #22c55e;
+            padding-bottom: 30px;
+            margin-bottom: 50px;
+        }
+        .header h1 {
+            font-size: 42px;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 18px;
+            color: #64748b;
+            font-style: italic;
+        }
+        .index-title {
+            font-size: 24px;
+            color: #1e293b;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .chapter {
+            margin-bottom: 35px;
+            padding: 25px;
+            border-left: 4px solid #22c55e;
+            background-color: #f9fafb;
+            transition: background-color 0.3s ease;
+        }
+        .chapter:hover {
+            background-color: #f0fdf4;
+        }
+        .chapter-header {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 15px;
+        }
+        .chapter-number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #22c55e;
+            margin-right: 20px;
+            min-width: 80px;
+        }
+        .chapter-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1e293b;
+            flex: 1;
+        }
+        .topics {
+            margin-left: 100px;
+            color: #64748b;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        .chapter-link {
+            display: inline-block;
+            margin-left: 100px;
+            margin-top: 15px;
+            color: #22c55e;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .chapter-link:hover {
+            color: #16a34a;
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #e5e7eb;
+            color: #64748b;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>JavaScript Learning Journey</h1>
+            <p>A Complete Guide from Fundamentals to React</p>
+        </div>
+
+        <div class="index-title">Table of Contents</div>
+
+        <!-- Chapter 1 -->
+        <div class="chapter">
+            <div class="chapter-header">
+                <div class="chapter-number">Chapter 1</div>
+                <div class="chapter-title">JavaScript Basics</div>
+            </div>
+            <div class="topics">
+                Output & Comments • Variables & Data Types • Arithmetic Operators • User Input • Type Conversion • Constants • Math Object
+            </div>
+            <a href="1.html" class="chapter-link">Read Chapter →</a>
+        </div>
+
+        <!-- Chapter 2 -->
+        <div class="chapter">
+            <div class="chapter-header">
+                <div class="chapter-number">Chapter 2</div>
+                <div class="chapter-title">Control Flow & Strings</div>
+            </div>
+            <div class="topics">
+                If Statements • Checked Property • Ternary Operator • Switch Statements • String Methods • String Slicing • Method Chaining
+            </div>
+            <a href="2.html" class="chapter-link">Read Chapter →</a>
+        </div>
+
+        <!-- Chapter 3 -->
+        <div class="chapter">
+            <div class="chapter-header">
+                <div class="chapter-number">Chapter 3</div>
+                <div class="chapter-title">Loops & Functions</div>
+            </div>
+            <div class="topics">
+                Logical Operators • Equality Operators • While Loops • For Loops • Functions
+            </div>
+            <a href="3.html" class="chapter-link">Read Chapter →</a>
+        </div>
+
+        <!-- Chapter 4 -->
+        <div class="chapter">
+            <div class="chapter-header">
+                <div class="chapter-number">Chapter 4</div>
+                <div class="chapter-title">Arrays & Callbacks</div>
+            </div>
+            <div class="topics">
+                Arrays & Methods • 2D Arrays • Spread Operator • Rest Parameters • Callback Functions
+            </div>
+            <a href="4.html" class="chapter-link">Read Chapter →</a>
+        </div>
+
+        <!-- Chapter 5 -->
+        <div class="chapter">
+            <div class="chapter-header">
+                <div class="chapter-number">Chapter 5</div>
+                <div class="chapter-title">Array Methods & Functions</div>
+            </div>
+            <div class="topics">
+                forEach() Method • map() Method • filter() Method • reduce() Method • Function Expressions • Arrow Functions
+            </div>
+            <a href="5.html" class="chapter-link">Read Chapter →</a>
+        </div>
+
+        <!-- Chapter 6 -->
+        <div class="chapter">
+            <div class="chapter-header">
+                <div class="chapter-number">Chapter 6</div>
+                <div class="chapter-title">Object-Oriented Programming</div>
+            </div>
+            <div class="topics">
+                Objects • Constructor Functions • Classes (ES6) • Destructuring
+            </div>
+            <a href="6.html" class="chapter-link">Read Chapter →</a>
+        </div>
+
+        <!-- Chapter 7 -->
+        <div class="chapter">
+            <div class="chapter-header">
+                <div class="chapter-number">Chapter 7</div>
+                <div class="chapter-title">Modules, JSON & Error Handling</div>
+            </div>
+            <div class="topics">
+                ES6 Modules (import/export) • JSON (parse/stringify) • Error Handling (try/catch/finally)
+            </div>
+            <a href="7.html" class="chapter-link">Read Chapter →</a>
+        </div>
+
+        <!-- Chapter 8 -->
+        <div class="chapter">
+            <div class="chapter-header">
+                <div class="chapter-number">Chapter 8</div>
+                <div class="chapter-title">Asynchronous JavaScript</div>
+            </div>
+            <div class="topics">
+                Synchronous vs Asynchronous • Callback Hell • Promises • Async/Await • Fetch API
+            </div>
+            <a href="8.html" class="chapter-link">Read Chapter →</a>
+        </div>
+
+        <!-- Chapter 9 -->
+        <div class="chapter">
+            <div class="chapter-header">
+                <div class="chapter-number">Chapter 9</div>
+                <div class="chapter-title">DOM Manipulation & Events</div>
+            </div>
+            <div class="topics">
+                DOM Element Creation • Mouse Events • Keyboard Events • Show/Hide • Image Slider • querySelector
+            </div>
+            <a href="9.html" class="chapter-link">Read Chapter →</a>
+        </div>
+
+        <div class="footer">
+            Ready to master JavaScript and start building with React
+        </div>
+    </div>
+</body>
+</html>

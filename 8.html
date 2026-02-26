@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Asynchronous Programming</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        section {
+            background-color: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #22c55e;
+            border-bottom: 3px solid #22c55e;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #059669;
+        }
+        .info-box {
+            background-color: #e0f2fe;
+            border-left: 4px solid #0284c7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .example-box {
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .critical-box {
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .warning-box {
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #22c55e;
+            color: white;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #d63384;
+        }
+        .syntax-box {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        .syntax-box .keyword {
+            color: #c084fc;
+        }
+        .syntax-box .string {
+            color: #86efac;
+        }
+        .syntax-box .comment {
+            color: #94a3b8;
+        }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comparison-item {
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .sync {
+            background-color: #fee2e2;
+            border: 2px solid #ef4444;
+        }
+        .async {
+            background-color: #dcfce7;
+            border: 2px solid #22c55e;
+        }
+        button {
+            background-color: #22c55e;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button:hover {
+            background-color: #16a34a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript: Asynchronous Programming</h1>
+    <p style="text-align: center; font-size: 18px; color: #64748b;">
+        Master Callbacks, Promises, Async/Await, and Fetch API
+    </p>
+
+    <!-- ================= TOPIC 38: SYNC VS ASYNC ================= -->
+    <section>
+        <h2>Topic 38: Synchronous vs Asynchronous</h2>
+        <p>Understanding how JavaScript handles blocking and non-blocking code</p>
+        
+        <div class="comparison">
+            <div class="comparison-item sync">
+                <h3>⏸️ Synchronous</h3>
+                <ul>
+                    <li>Executes line by line</li>
+                    <li>Waits for each operation</li>
+                    <li>Blocking (stops execution)</li>
+                    <li>Sequential flow</li>
+                </ul>
+            </div>
+            <div class="comparison-item async">
+                <h3>⚡ Asynchronous</h3>
+                <ul>
+                    <li>Multiple operations at once</li>
+                    <li>Doesn't wait</li>
+                    <li>Non-blocking (continues)</li>
+                    <li>Concurrent operations</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>setTimeout() Function</h3>
+        <div class="info-box">
+            <strong>What is setTimeout()?</strong><br>
+            Built-in function that executes code after a specified delay<br>
+            <br>
+            <strong>Syntax:</strong> <code>setTimeout(callback, milliseconds)</code><br>
+            • <code>callback</code> - Function to execute after delay<br>
+            • <code>milliseconds</code> - Delay time (1000ms = 1 second)<br>
+            • Returns timer ID (can cancel with clearTimeout())<br>
+            • <strong>ASYNCHRONOUS</strong> - doesn't block code execution
+        </div>
+
+        <div class="example-box">
+            <h3>Example in Console:</h3>
+            <p>Watch the execution order - Tasks 2, 3, 4 run immediately while Task 1 waits 3 seconds!</p>
+            <button id="syncAsyncBtn">🚀 Run Example</button>
+        </div>
+    </section>
+
+    <!-- ================= TOPIC 39: CALLBACK HELL ================= -->
+    <section>
+        <h2>Topic 39: Callback Hell</h2>
+        <p>The problem with deeply nested callbacks</p>
+        
+        <div class="warning-box">
+            <strong>⚠️ Callback Hell (Pyramid of Doom):</strong><br>
+            When callbacks are nested within callbacks, creating hard-to-read code
+        </div>
+
+        <div class="syntax-box">
+<span class="comment">// This is Callback Hell - hard to read!</span>
+task1(() => {
+    task2(() => {
+        task3(() => {
+            task4(() => {
+                console.log(<span class="string">"Done"</span>);
+            })
+        })
+    })
+})
+        </div>
+
+        <table>
+            <tr>
+                <th>Problem</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>Hard to Read</td>
+                <td>Pyramid shape makes code confusing</td>
+            </tr>
+            <tr>
+                <td>Difficult to Debug</td>
+                <td>Errors are hard to track down</td>
+            </tr>
+            <tr>
+                <td>Messy Error Handling</td>
+                <td>Need separate error handlers for each callback</td>
+            </tr>
+            <tr>
+                <td>Hard to Maintain</td>
+                <td>Adding/removing steps is complicated</td>
+            </tr>
+        </table>
+
+        <div class="info-box">
+            <strong>Solution:</strong> Use Promises or async/await (covered in next topics)!
+        </div>
+
+        <div class="example-box">
+            <h3>Example in Console:</h3>
+            <p>4 nested tasks that execute sequentially - demonstrates the "pyramid" structure</p>
+            <button id="callbackHellBtn">🚀 Run Example</button>
+        </div>
+    </section>
+
+    <!-- ================= TOPIC 40: PROMISES ================= -->
+    <section>
+        <h2>Topic 40: Promises</h2>
+        <p>Handle asynchronous operations with cleaner syntax</p>
+        
+        <div class="critical-box">
+            <strong>What is a Promise?</strong><br>
+            An object representing the eventual completion (or failure) of an async operation
+        </div>
+
+        <h3>Promise States</h3>
+        <table>
+            <tr>
+                <th>State</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>PENDING</td>
+                <td>Initial state, operation in progress</td>
+            </tr>
+            <tr>
+                <td>RESOLVED (fulfilled)</td>
+                <td>Operation completed successfully</td>
+            </tr>
+            <tr>
+                <td>REJECTED</td>
+                <td>Operation failed</td>
+            </tr>
+        </table>
+
+        <div class="syntax-box">
+<span class="keyword">new Promise</span>((resolve, reject) => {
+    <span class="keyword">if</span>(success){
+        resolve(<span class="string">"Success!"</span>);  <span class="comment">// Resolved</span>
+    }
+    <span class="keyword">else</span>{
+        reject(<span class="string">"Failed!"</span>);    <span class="comment">// Rejected</span>
+    }
+});
+        </div>
+
+        <h3>Promise Chaining Rules</h3>
+        <div class="info-box">
+            <strong>Important Rules:</strong><br>
+            1. <code>.then()</code> waits for Promise from previous step<br>
+            2. <code>() => step2()</code> → implicit return (returns promise)<br>
+            3. <code>() => { step2(); }</code> → returns undefined (chain breaks!)<br>
+            4. <code>() => { return step2(); }</code> → explicit return (correct)<br>
+            5. <code>.catch()</code> catches ANY rejection in the chain
+        </div>
+
+        <div class="example-box">
+            <h3>Examples in Console:</h3>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+                <button id="promise1Btn">🚀 Run Example 1 - Basic Promise</button>
+                <button id="promise2Btn">⏱️ Run Example 2 - With Delay (2s)</button>
+                <button id="promise3Btn">🔗 Run Example 3 - Chaining</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= TOPIC 41: ASYNC/AWAIT ================= -->
+    <section>
+        <h2>Topic 41: Async/Await</h2>
+        <p>Write asynchronous code that looks synchronous</p>
+        
+        <div class="critical-box">
+            <strong>Modern Standard!</strong> Async/await is the preferred way to handle async operations
+        </div>
+
+        <div class="info-box">
+            <strong>Key Concepts:</strong><br>
+            • <code>async</code> - Makes function return a Promise<br>
+            • <code>await</code> - Pauses function until Promise resolves<br>
+            • Use <code>try/catch</code> for error handling<br>
+            • Looks like synchronous code but is asynchronous!
+        </div>
+
+        <div class="syntax-box">
+<span class="keyword">async function</span> fetchData(){
+    <span class="keyword">try</span> {
+        <span class="keyword">const</span> result = <span class="keyword">await</span> someAsyncOperation();
+        console.log(result);
+    }
+    <span class="keyword">catch</span>(error) {
+        console.error(error);
+    }
+}
+        </div>
+
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Promises (.then)</th>
+                <th>Async/Await</th>
+            </tr>
+            <tr>
+                <td>Syntax</td>
+                <td>Chaining .then()</td>
+                <td>Sequential await</td>
+            </tr>
+            <tr>
+                <td>Readability</td>
+                <td>Can get messy</td>
+                <td>✅ Clean, linear</td>
+            </tr>
+            <tr>
+                <td>Error Handling</td>
+                <td>.catch() at end</td>
+                <td>✅ try/catch blocks</td>
+            </tr>
+            <tr>
+                <td>Modern?</td>
+                <td>Still used</td>
+                <td>✅ Preferred</td>
+            </tr>
+        </table>
+
+        <div class="example-box">
+            <h3>Examples in Console:</h3>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+                <button id="async1Btn">🚀 Run Example 1 - Basic async</button>
+                <button id="async2Btn">👤 Run Example 2 - Fetch User (2s)</button>
+                <button id="async3Btn">🧹 Run Example 3 - Do Chores</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= TOPIC 42: FETCH API ================= -->
+    <section>
+        <h2>Topic 42: Fetch API</h2>
+        <p>Make HTTP requests to APIs and fetch data</p>
+ 
+        <h3>Fetch Basics</h3>
+        <div class="info-box">
+            <strong>What is fetch()?</strong><br>
+            Function for making HTTP requests to fetch resources<br>
+            <br>
+            <strong>Syntax:</strong> <code>fetch(url, {options})</code><br>
+            • Returns a Promise<br>
+            • Used for APIs, images, files, JSON data
+        </div>
+
+        <h3>Key Methods & Properties</h3>
+        <table>
+            <tr>
+                <th>Method/Property</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>response.ok</code></td>
+                <td>Boolean - true if status 200-299</td>
+            </tr>
+            <tr>
+                <td><code>response.json()</code></td>
+                <td>Parses JSON → JavaScript object (returns Promise)</td>
+            </tr>
+            <tr>
+                <td><code>response.text()</code></td>
+                <td>Parses response as plain text</td>
+            </tr>
+            <tr>
+                <td><code>response.blob()</code></td>
+                <td>Parses as binary data (images, files)</td>
+            </tr>
+        </table>
+
+        <h3>Two Ways to Use Fetch</h3>
+        <div class="comparison">
+            <div class="comparison-item">
+                <h4>Method 1: .then()</h4>
+                <div class="syntax-box" style="font-size: 12px;">
+fetch(url)
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+                </div>
+            </div>
+            <div class="comparison-item">
+                <h4>Method 2: async/await ✅</h4>
+                <div class="syntax-box" style="font-size: 12px;">
+<span class="keyword">async function</span> fetchData(){
+    <span class="keyword">const</span> res = <span class="keyword">await</span> fetch(url);
+    <span class="keyword">const</span> data = <span class="keyword">await</span> res.json();
+}
+                </div>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h3>Live Example:</h3>
+            <p>Fetch real Pokémon data from API! Try both methods:</p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+                <button id="fetchThenBtn">🔄 Run .then() Version</button>
+                <button id="fetchAsyncBtn">⚡ Run async/await Version</button>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Why async/await over .then()?</strong>
+            <ul>
+                <li>Cleaner, more readable code</li>
+                <li>Looks like synchronous code</li>
+                <li>Easier error handling with try/catch</li>
+                <li>Better for complex operations</li>
+            </ul>
+        </div>
+    </section>
+    <section style="background-color: white; padding: 20px; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+            <a href="7.html" style="text-decoration: none;">
+                <button style="background-color: #64748b; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+                    ← 
+                </button>
+            </a>
+            
+            <a href="index.html" style="text-decoration: none;">
+                <button style="background-color: #22c55e; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+                    🏠 Home
+                </button>
+            </a>
+            
+            <a href="9.html" style="text-decoration: none;">
+                <button style="background-color: #3b82f6; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+                     →
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <!-- Link to JavaScript file -->
+    <script src="8.js"></script>
+</body>
+</html>
