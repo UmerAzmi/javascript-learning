@@ -113,7 +113,7 @@ cd javascript-mastery
 ```bash
 # Open home.html directly
 # OR run a local server
-# Then visit: http://localhost:8000/home.html
+# And visit: http://localhost:8000/home.html
 ```
 
 3. Begin learning from any chapter.

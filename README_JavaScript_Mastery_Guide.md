@@ -6,6 +6,11 @@ A structured, interactive learning resource covering modern JavaScript from core
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
+<div>
+<a href="https://UmerAzmi.github.io/javascript-mastery/" target="_blank">
+  <img src="https://img.shields.io/badge/View-Live%20Demo-blue?style=for-the-badge">
+</a>
+
 ## 📚 About
 
 This project is a self-contained JavaScript learning platform built from the ground up. It provides a structured progression through essential concepts using interactive examples, practical demonstrations, and well-commented code.
@@ -46,34 +51,19 @@ This project is a self-contained JavaScript learning platform built from the gro
 - Clean and consistent styling
 - Smooth transitions and hover effects
 
-## 📑 Table of Contents
+## 📑 Curriculum Overview
 
-### Chapter 1 — JavaScript Basics
-Variables, Data Types, Arithmetic Operators, User Input, Type Conversion, Constants, Math Object
-
-### Chapter 2 — Control Flow & Strings
-If Statements, Ternary Operator, Switch, String Methods, String Slicing, Method Chaining
-
-### Chapter 3 — Loops & Functions
-Logical Operators, Equality Operators, While Loops, For Loops, Functions
-
-### Chapter 4 — Arrays & Callbacks
-Arrays, Array Methods, 2D Arrays, Spread Operator, Rest Parameters, Callbacks
-
-### Chapter 5 — Array Methods & Functions
-forEach(), map(), filter(), reduce(), Function Expressions, Arrow Functions
-
-### Chapter 6 — Object-Oriented Programming
-Objects, Constructor Functions, Classes (ES6), Inheritance, Static Methods, Destructuring
-
-### Chapter 7 — Modules, JSON & Error Handling
-ES6 Modules, JSON Handling, Error Management (try/catch/finally)
-
-### Chapter 8 — Asynchronous JavaScript
-Callback Patterns, Promises, Async/Await, Fetch API
-
-### Chapter 9 — DOM Manipulation & Events
-Element Creation, Event Listeners, Dynamic Updates, Query Selectors, UI Interactions
+| Chapter | Topic | Key Areas Covered |
+|---------|--------|-------------------|
+| 1 | JavaScript Basics | Variables, types, operators, input, Math object |
+| 2 | Control Flow & Strings | Conditionals, switch, string manipulation |
+| 3 | Loops & Functions | Iteration, logical operators, functions |
+| 4 | Arrays & Callbacks | Array operations, spread/rest, callbacks |
+| 5 | Functional Methods | map, filter, reduce, arrow functions |
+| 6 | OOP | Classes, inheritance, constructors |
+| 7 | Modules & Errors | ES modules, JSON, error handling |
+| 8 | Async JavaScript | Promises, Async/Await, Fetch API |
+| 9 | DOM & Events | Dynamic UI, event handling, selectors |
 
 ## 🚀 Getting Started
 
@@ -86,18 +76,24 @@ Element Creation, Event Listeners, Dynamic Updates, Query Selectors, UI Interact
 
 1. Clone the repository:
 
+```bash
 git clone https://github.com/UmerAzmi/javascript-mastery.git
 cd javascript-mastery
+```
 
 2. Open in browser:
 
-Open home.html directly OR run a local server and visit:
-http://localhost:8000/home.html
+```bash
+# Open home.html directly
+# OR run a local server
+# And visit: http://localhost:8000/home.html
+```
 
 3. Begin learning from any chapter.
 
 ## 📂 Project Structure
 
+```
 javascript-mastery/
 │
 ├── home.html                    # Homepage with navigation
@@ -111,13 +107,13 @@ javascript-mastery/
 ├── 7.html & 7.js               # Chapter 7: Modules & Error Handling
 ├── 8.html & 8.js               # Chapter 8: Async JavaScript
 └── 9.html & 9.js               # Chapter 9: DOM Manipulation & Events
+```
 
-Structure Benefits:
-
-- All files at root level (no nested folders)
-- Easy navigation and deployment
-- Clean, numbered organization
-- No path configuration required
+**Simple Structure Benefits:**
+* All files at root level (no nested folders)
+* Easy navigation and deployment
+* Clean, numbered organization
+* No path configuration needed
 
 ## 🎨 Key Concepts Covered
 
@@ -171,15 +167,19 @@ Structure Benefits:
 
 ## 👨‍💻 Author
 
-Umer Azmi
+**Umer Azmi**
 
-GitHub: https://github.com/UmerAzmi
-LinkedIn: https://linkedin.com/in/umer-azmi-1181351a1
+* GitHub: <a href='https://github.com/UmerAzmi' target="_blank">Umer Azmi</a> 
+* LinkedIn: <a href='https://linkedin.com/in/umer-azmi-1181351a1' target="_blank">Umer Azmi</a> 
 
 ## 📝 License
 
 This project is open source and available under the MIT License.
 
-## Notes
+---
 
-This collection represents documented knowledge and project work. Additional skills and experience exist beyond what is included here.
+<div align="center" style="padding-top:15px">
+
+**Happy Learning 🚀**
+
+</div>
