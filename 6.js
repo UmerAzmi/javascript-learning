@@ -1,6 +1,6 @@
 // ================= TOPIC 31: OBJECTS =================
 
-console.log("\n--- Topic 31: Objects ---");
+console.log("\n---- Topic 31: Objects ----");
 
 // object = A collection of related properties and/or methods
 //          Can represent real world objects (people, products, places)
@@ -102,7 +102,7 @@ console.log("User's first hobby (array in object):", user.hobbies[0]);
 
 // ================= TOPIC 32: CONSTRUCTOR FUNCTIONS =================
 
-console.log("\n--- Topic 32: Constructor Functions ---");
+console.log("\n---- Topic 32: Constructor ----");
 
 // constructor = special method for defining the properties and methods of objects
 //               Think of it as a blueprint/template for creating multiple similar objects
@@ -163,9 +163,11 @@ car3.drive();
 
 // ================= TOPIC 33: CLASSES (ES6) =================
 
+console.log("\n---- Topic 33: Classes ----");
+
 // class = (ES6 feature) provides a more structured and cleaner way
 //         to work with objects compared to traditional constructor functions
-//         Introduced in ES6 (2015) as syntactic sugar over constructor functions
+//         Introduced in ES6 (2015) as just a cleaner way to write constructor functions.
 //         Benefits: cleaner syntax, inheritance with 'extends', static methods
 
 // Key differences from constructor functions:
@@ -200,9 +202,9 @@ class Product {
 const product1 = new Product("Shirt", 19.99);
 const product2 = new Product("Pants", 29.99);
 
-console.log("Product class - product1:");
+console.log("Product1:");
 product1.displayProduct();
-console.log("Product class - product2:");
+console.log("Product2:");
 product2.displayProduct();
 
 console.log("Product class - calculateTotal() with 10% tax:", product1.calculateTotal(0.1));

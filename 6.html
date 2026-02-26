@@ -195,6 +195,7 @@
         </div>
 
         <div class="syntax-box">
+            <pre>
 <span class="comment">// Constructor Function (starts with capital letter by convention)</span>
 <span class="keyword">function</span> Car(make, model, year, color){
     <span class="keyword">this</span>.make = make;      <span class="comment">// 'this' refers to new object</span>
@@ -205,6 +206,7 @@
 
 <span class="comment">// Create instances with 'new' keyword</span>
 <span class="keyword">const</span> car1 = <span class="keyword">new</span> Car(<span class="string">"Ford"</span>, <span class="string">"Mustang"</span>, <span class="string">2024</span>, <span class="string">"red"</span>);
+</pre>
         </div>
 
         <table>
@@ -252,10 +254,11 @@
         
         <div class="critical-box">
             <strong>🔥 Classes vs Constructors:</strong><br>
-            Classes are the MODERN way to create objects. They're "syntactic sugar" over constructor functions - they look different but work similarly under the hood. Always use classes in new code!
+            Classes are the MODERN way to create objects. They're like "sugar coating" over constructor functions - they look different but work similarly under the hood. Always use classes in new code!
         </div>
 
         <div class="syntax-box">
+            <pre>
 <span class="keyword">class</span> Product {
     <span class="comment">// constructor method (runs automatically)</span>
     <span class="keyword">constructor</span>(name, price){
@@ -270,7 +273,8 @@
 }
 
 <span class="keyword">const</span> product1 = <span class="keyword">new</span> Product(<span class="string">"Shirt"</span>, <span class="string">19.99</span>);
-        </div>
+</pre>
+            </div>
 
         <table>
             <tr>
