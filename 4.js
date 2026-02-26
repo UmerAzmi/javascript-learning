@@ -1,5 +1,7 @@
 // ================= TOPIC 20: ARRAYS =================
 
+console.log("\n--- Topic 20: Arrays ---");
+
 // array = a variable-like structure that can hold more than 1 value
 // Arrays store multiple values in a single variable
 // Index starts at 0 (first element is [0], second is [1], etc.)
@@ -72,6 +74,8 @@ for(let fruit of fruits){
 
 // ================= TOPIC 21: 2D ARRAYS =================
 
+console.log("\n--- Topic 21: 2D Arrays ---");
+
 // 2D array = multi-dimensional array that stores a matrix
 //            of data in rows and columns
 //            Think of it as an array of arrays
@@ -114,6 +118,8 @@ for(let row of matrix){
 
 // ================= TOPIC 22: SPREAD OPERATOR =================
 
+console.log("\n--- Topic 22: Spread Operator ---");
+
 // spread operator = ... allows an iterable such as an
 //                   array or string to be expanded
 //                   into separate elements
@@ -150,6 +156,8 @@ console.log(foods);
 
 
 // ================= TOPIC 23: REST PARAMETERS =================
+
+console.log("\n--- Topic 23: Rest Parameters ---");
 
 // rest parameters = (...rest) allow a function to work with a variable
 //                   number of arguments by bundling them into an array
@@ -217,6 +225,8 @@ console.log(fullName);  // "Mr. Umer Azmi III"
 
 
 // ================= TOPIC 24: CALLBACKS =================
+
+console.log("\n--- Topic 24: Callbacks ---");
 
 // callback = a function that is passed as an argument
 //            to another function

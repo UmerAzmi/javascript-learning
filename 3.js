@@ -1,5 +1,7 @@
 // ================= TOPIC 15: LOGICAL OPERATORS =================
 
+console.log("\n--- Topic 15: Logical Operators ---");
+
 // logical operators = used to combine or manipulate boolean values 
 //                     (true or false)
 // AND = &&  (both conditions must be true)
@@ -42,6 +44,8 @@ else{
 
 // ================= TOPIC 16: EQUALITY OPERATORS =================
 
+console.log("\n--- Topic 16: Equality Operators ---");
+
 // = assignment operator (assigns a value to a variable)
 // == comparison operator (compares if values are equal, ignores datatype)
 // === strict equality operator (compares if values AND datatype are equal)
@@ -66,6 +70,8 @@ else{
 
 
 // ================= TOPIC 17: WHILE LOOPS =================
+
+console.log("\n--- Topic 17: While Loops ---");
 
 // while loop = repeat some code WHILE some condition is true
 // Loop continues until condition becomes false
@@ -128,6 +134,8 @@ loginBtn.onclick = function(){
 
 // ================= TOPIC 18: FOR LOOPS =================
 
+console.log("\n--- Topic 18: For Loops ---");
+
 // for loop = repeat some code a LIMITED amount of times
 // Syntax: for(initialization; condition; increment/decrement)
 
@@ -152,6 +160,8 @@ for(let i = 10; i > 0; i--){
 
 
 // ================= TOPIC 19: FUNCTIONS =================
+
+console.log("\n--- Topic 19: Functions ---");
 
 // function = A section of reusable code
 //            Declare code once, use it whenever you want

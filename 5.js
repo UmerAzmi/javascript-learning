@@ -1,12 +1,13 @@
 // ================= TOPIC 25: forEach() METHOD =================
 
+console.log("\n--- Topic 25: forEach() Method ---");
+
 // forEach() = method used to iterate over the elements 
 //             of an array and apply a specified function (callback)
 //             to each element
 
 // Syntax: array.forEach(callback)
 // The callback receives: element, index, array
-console.log("\n-- forEach() method --")
 
 // -------------- EXAMPLE 1: Math operations --------------
 
@@ -65,10 +66,11 @@ fruits.forEach(display);
 
 // ================= TOPIC 26: map() METHOD =================
 
+console.log("\n--- Topic 26: map() Method ---");
+
 // .map() = accepts a callback and applies that function 
 //          to each element of an array, then returns a NEW array
 // Original array stays unchanged
-console.log("\n-- map() method --")
 
 // ------------ EXAMPLE 1: Number transformations ------------
 const numbers2 = [1, 2, 3, 4, 5];
@@ -124,11 +126,11 @@ console.log(formattedDates);  // ["10/1/2024", "03/6/2025", "30/3/2026"]
 
 // ================= TOPIC 27: filter() METHOD =================
 
+console.log("\n--- Topic 27: filter() Method ---");
+
 // filter() = creates a NEW array by filtering out elements
 //            Returns only elements where callback returns true
 // Original array stays unchanged
-
-console.log("\n-- filter() method --")
 
 // ----------- EXAMPLE 1: Filter even/odd numbers -----------
 let numbers3 = [1, 2, 3, 4, 5, 6, 7];
@@ -184,11 +186,11 @@ console.log(shortWords);
 
 // ================= TOPIC 28: reduce() METHOD =================
 
+console.log("\n--- Topic 28: reduce() Method ---");
+
 // .reduce() = reduce the elements of an array to a SINGLE value
 // Processes array left to right
 // accumulator = running total, element = current value
-
-console.log("\n-- reduce() method --")
 
 // ----------- EXAMPLE 1: Sum of prices -----------
 const prices = [5, 30, 10, 25, 15, 20];
@@ -231,10 +233,10 @@ console.log(`Max: ${maximum}, Min: ${minimum}`);
 
 // ================= TOPIC 29: FUNCTION EXPRESSIONS =================
 
+console.log("\n--- Topic 29: Function Expressions ---");
+
 // function expressions = a way to define functions as values or variables
 // Functions can be stored in variables and passed around
-
-console.log("\n-- function expressions --")
 
 // Traditional function declaration:
 // function myFunction() { }
@@ -264,11 +266,11 @@ setTimeout(function(){
 
 // ================= TOPIC 30: ARROW FUNCTIONS =================
 
+console.log("\n--- Topic 30: Arrow Functions ---");
+
 // arrow functions = a concise way to write function expressions
 //                   Good for simple functions that you use only once
 //                   Syntax: (parameters) => some code
-
-console.log("\n-- arrow functions --")
 
 // ---------- EXAMPLE 1: Basic arrow function ----------
 // Traditional function vs arrow function
