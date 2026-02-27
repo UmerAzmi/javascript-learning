@@ -143,7 +143,7 @@ users.forEach(user => {
 
 // ================= TOPIC 37: ERROR HANDLING (try/catch/finally) =================
 
-// Error = An Object that is created to represent a problem that occurs
+// Error = An Object that is created to represent a problem that
 //         Occurs often with user input or establishing a connection
 //         Helps prevent program crashes by handling exceptions gracefully
 
@@ -185,14 +185,12 @@ calculateBtn.onclick = function(){
         
         // If no errors thrown, calculation proceeds
         const result = dividend / divisor;
-        console.log("Division result:", result);
         resultDisplay.textContent = `Result: ${result}`;
         resultDisplay.style.color = "green";
     }
     catch(error){
         // error = Error object containing information about what went wrong
         // error.message = the error message string
-        console.error("Error caught:", error);
         resultDisplay.textContent = `Error: ${error.message}`;
         resultDisplay.style.color = "red";
     }
@@ -202,8 +200,6 @@ calculateBtn.onclick = function(){
         console.log("Finally block: This always executes");
     }
 }
-
-console.log("Error handling setup complete!");
 
 // ------------ EXAMPLE: Why use try/catch? ------------
 
