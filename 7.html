@@ -105,7 +105,7 @@
         .syntax-box .comment {
             color: #94a3b8;
         }
-        input[type="number"] {
+        input[type="number"], input[type="text"]{
             padding: 10px;
             margin: 10px 5px 10px 0;
             border: 2px solid #ddd;
@@ -159,22 +159,28 @@
         <h2>Topic 35: ES6 Modules (import/export)</h2>
         <p>Split code into reusable files and import them where needed</p>
 
+        <div class="critical-box">
+            <strong>For a better explanation, see the JavaScript file.</strong>
+        </div>
+
         <h3>Named Exports (Multiple per file)</h3>
         <div class="syntax-box">
-<span class="comment">// mathUtils.js</span>
+<pre>
+<span class="comment">// This is a example of mathUtils.js file contents which exports</span>
 <span class="keyword">export const</span> PI = <span class="string">3.14159</span>;
 
 <span class="keyword">export function</span> getArea(radius){
     <span class="keyword">return</span> PI * radius * radius;
 }
 
-<span class="comment">// main.js</span>
+<span class="comment">// This is your file where you import the code from mathUtils.js file: main.js</span>
 <span class="keyword">import</span> {PI, getArea} <span class="keyword">from</span> <span class="string">'./mathUtils.js'</span>;
 console.log(getArea(<span class="string">10</span>));
         </div>
-
-        <h3>Default Export (One per file)</h3>
-        <div class="syntax-box">
+</pre>
+<h3>Default Export (One per file)</h3>
+<div class="syntax-box">
+    <pre>
 <span class="comment">// Component.js</span>
 <span class="keyword">export default function</span> MyComponent(){
     <span class="keyword">return</span> &lt;div&gt;Hello&lt;/div&gt;;
@@ -182,8 +188,9 @@ console.log(getArea(<span class="string">10</span>));
 
 <span class="comment">// App.js</span>
 <span class="keyword">import</span> MyComponent <span class="keyword">from</span> <span class="string">'./Component.js'</span>;
-        </div>
-
+</pre>
+    </div>
+    
         <table>
             <tr>
                 <th>Type</th>
@@ -251,6 +258,7 @@ console.log(getArea(<span class="string">10</span>));
         </table>
 
         <div class="syntax-box">
+<pre>
 <span class="comment">// JSON string (from API):</span>
 <span class="keyword">const</span> jsonString = <span class="string">`{"name":"Umer Azmi","age":23}`</span>;
 
@@ -262,6 +270,7 @@ console.log(obj.name);  <span class="comment">// "Umer Azmi"</span>
 <span class="keyword">const</span> person = {name: <span class="string">"Umer"</span>, age: <span class="string">23</span>};
 <span class="keyword">const</span> json = JSON.stringify(person);
 console.log(json);  <span class="comment">// '{"name":"Umer","age":23}'</span>
+</pre>
         </div>
 
         <div class="example-box">
@@ -294,10 +303,10 @@ console.log(json);  <span class="comment">// '{"name":"Umer","age":23}'</span>
         <p>Try dividing by zero or entering text to see error handling in action!</p>
 
         <label for="dividendInput">Dividend (numerator):</label><br>
-        <input type="number" id="dividendInput" placeholder="Enter dividend" value="10">
+        <input type="text" id="dividendInput" placeholder="Enter dividend" value="10">
         <br>
         <label for="divisorInput">Divisor (denominator):</label><br>
-        <input type="number" id="divisorInput" placeholder="Enter divisor" value="2">
+        <input type="text" id="divisorInput" placeholder="Enter divisor" value="2">
         <br>
         <button id="calculateBtn">Calculate</button>
 
@@ -352,6 +361,7 @@ console.log(json);  <span class="comment">// '{"name":"Umer","age":23}'</span>
         </div>
 
         <div class="syntax-box">
+<pre>
 <span class="keyword">try</span>{
     <span class="keyword">if</span>(divisor === <span class="string">0</span>){
         <span class="comment">// throw = manually creates error and jumps to catch</span>
@@ -411,7 +421,7 @@ console.log(json);  <span class="comment">// '{"name":"Umer","age":23}'</span>
 
     </section>
 
-    <section style="background-color: white; padding: 20px; margin: 20px auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); width: fit-content; display: flex; justify-content: center; ">
+    <section style="background-color: white; padding: 20px; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
         <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
             <a href="6.html" style="text-decoration: none;">
                 <button style="background-color: #64748b; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">

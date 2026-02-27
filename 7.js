@@ -118,7 +118,9 @@ console.log("JSON.stringify() - Converted to JSON string:", jsonStr);
 
 // Pretty print JSON (with indentation):
 const prettyJson = JSON.stringify(person4, null, 2); 
-// converts person4 object to JSON text, keeps all properties (null), and pretty-prints it with new lines + 2-space indentation
+// converts person4 object to JSON string, keeps all properties (null), and pretty-prints it with new lines + 2-space indentation
+
+// const jsonStr = JSON.stringify(person4,["name"],5); // only prints name property with 5 spaces indentation
 
 console.log("Pretty printed JSON:", prettyJson);
 
