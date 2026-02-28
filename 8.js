@@ -19,7 +19,7 @@
 //                setTimeout is ASYNCHRONOUS - doesn't block code execution
 
 // ------------ ASYNCHRONOUS EXAMPLE ------------
-function runSyncVsAsync(){
+function runSyncVsAsync(){             // Ignore this function as it gets triggered when clicking on run example button
     console.clear();
     
     function func1(callback){
@@ -70,7 +70,7 @@ document.getElementById("syncAsyncBtn").onclick = runSyncVsAsync;
 // 3. Error handling is messy
 // 4. Hard to maintain and modify
 
-function runCallbackHell(){
+function runCallbackHell(){        // Ignore this function as it gets triggered when clicking on run example button
     console.clear();
     
     function task1(callback){
@@ -130,7 +130,7 @@ document.getElementById("callbackHellBtn").onclick = runCallbackHell;
 
 // ------------ EXAMPLE 1: Basic Promise ------------
 
-function runPromiseExample1(){
+function runPromiseExample1(){        // Ignore this function as it gets triggered when clicking on run example button
     console.clear();
     
     // Creating a Promise
@@ -164,7 +164,7 @@ document.getElementById("promise1Btn").onclick = runPromiseExample1;
 
 // ------------ EXAMPLE 2: Promise with setTimeout ------------
 
-function runPromiseExample2(){
+function runPromiseExample2(){      // Ignore this function as it gets triggered when clicking on run example button
     console.clear();
     
     function waitSeconds(seconds){
@@ -186,7 +186,7 @@ document.getElementById("promise2Btn").onclick = runPromiseExample2;
 
 // ------------ EXAMPLE 3: Chaining Promises ------------
 
-function runPromiseExample3(){
+function runPromiseExample3(){     // Ignore this function as it gets triggered when clicking on run example button
     console.clear();
     
     function step1(){
@@ -261,7 +261,7 @@ document.getElementById("promise3Btn").onclick = runPromiseExample3;
 
 // ------------ EXAMPLE 1: Basic async/await ------------
 
-function runAsyncExample1(){
+function runAsyncExample1(){   // Ignore this function as it gets triggered when clicking on run example button
     console.clear();
     
     // async function automatically returns a Promise
@@ -277,7 +277,7 @@ document.getElementById("async1Btn").onclick = runAsyncExample1;
 
 // ------------ EXAMPLE 2: await with Promises ------------
 
-function runAsyncExample2(){
+function runAsyncExample2(){      // Ignore this function as it gets triggered when clicking on run example button
     console.clear();
     
     function fetchUser(){
@@ -307,7 +307,7 @@ document.getElementById("async2Btn").onclick = runAsyncExample2;
 
 // ------------ EXAMPLE 3: Chores with Async/Await ------------
 
-function runAsyncExample3(){
+function runAsyncExample3(){       // Ignore this function as it gets triggered when clicking on run example button
     console.clear();
     
     // Async/Await = Async = makes a function return a promise
@@ -315,7 +315,7 @@ function runAsyncExample3(){
 
     // Allows you write asynchronous code in a synchronous manner
     // Async doesn't have resolve or reject set up as parameters
-    // Everything after Await is placed in an event queue
+    // After await, the remaining code runs later via the event queue once the Promise resolves.
 
     function walkDog(){
         return new Promise((resolve, reject) => {
@@ -416,7 +416,7 @@ document.getElementById("async3Btn").onclick = runAsyncExample3;
 
 // ------------ METHOD 1: Using .then() ------------
 
-function runFetchThen(){
+function runFetchThen(){              // Ignore this function as it gets triggered when clicking on run example button
     console.clear();
     console.log("=== Fetch with .then() ===");
     
@@ -448,7 +448,7 @@ document.getElementById("fetchThenBtn").onclick = runFetchThen;
 
 // ------------ METHOD 2: Using async/await (MODERN & CLEANER) ------------
 
-function runFetchAsync(){
+function runFetchAsync(){                  // Ignore this function as it gets triggered when clicking on run example button
     console.clear();
     console.log("=== Fetch with async/await ===");
     
@@ -469,6 +469,7 @@ function runFetchAsync(){
             console.log("Pokémon data (async/await version):", data);
             console.log("Name:", data.name);
             console.log("Abilities:", data.abilities.map(a => a.ability.name));
+            console.log("Abilities & Slot:", data.abilities.map(a =>`Ability: ${a.ability.name}, Slot: ${a.slot}`));
         }
         catch(error){
             // Handles any errors (network issues, parsing errors, thrown errors)

@@ -143,6 +143,10 @@
         button:active {
             transform: translateY(0);
         }
+        pre{
+            padding: 0;
+            margin: 0;
+        }
 /* ============= MOBILE RESPONSIVENESS ============= */
 
     /* Make tables responsive */
@@ -409,6 +413,7 @@ task1(() => {
         </div>
 
         <div class="syntax-box">
+            <pre>
 <span class="keyword">async function</span> fetchData(){
     <span class="keyword">try</span> {
         <span class="keyword">const</span> result = <span class="keyword">await</span> someAsyncOperation();
@@ -418,6 +423,7 @@ task1(() => {
         console.error(error);
     }
 }
+</pre>
         </div>
 
         <table>
@@ -461,7 +467,7 @@ task1(() => {
     <!-- ================= TOPIC 42: FETCH API ================= -->
     <section>
         <h2>Topic 42: Fetch API</h2>
-        <p>Make HTTP requests to APIs and fetch data</p>
+        <p>Make HTTP requests to APIs/resources and fetch data</p>
  
         <h3>Fetch Basics</h3>
         <div class="info-box">
@@ -502,19 +508,23 @@ task1(() => {
             <div class="comparison-item">
                 <h4>Method 1: .then()</h4>
                 <div class="syntax-box" style="font-size: 12px;">
+                    <pre>
 fetch(url)
-  .then(res => res.json())
-  .then(data => console.log(data))
-  .catch(err => console.error(err));
-                </div>
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(err => console.error(err));
+</pre>
+                    </div>
             </div>
             <div class="comparison-item">
                 <h4>Method 2: async/await ✅</h4>
                 <div class="syntax-box" style="font-size: 12px;">
+<pre>
 <span class="keyword">async function</span> fetchData(){
     <span class="keyword">const</span> res = <span class="keyword">await</span> fetch(url);
     <span class="keyword">const</span> data = <span class="keyword">await</span> res.json();
 }
+</pre>
                 </div>
             </div>
         </div>
