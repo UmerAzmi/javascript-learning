@@ -257,7 +257,7 @@
 
     <!-- Link to JavaScript file -->
     <script src="1.js"></script>
-        <style>
+    <style>
         /* Shrinks main content when panel is open (DESKTOP ONLY) */
         @media (min-width: 769px) {
             body.panel-open {
@@ -590,6 +590,26 @@
 
         toggleBtn.addEventListener("click", togglePanel);
         closeBtn.addEventListener("click", togglePanel);
+
+        // Hide button near footer on mobile
+        if (window.innerWidth <= 768) {
+            window.addEventListener('scroll', () => {
+                const footer = document.querySelector('footer');
+                const btn = document.getElementById('jsToggleBtn');
+                
+                if (footer) {
+                    const footerTop = footer.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    // Hide button when footer is visible
+                    if (footerTop < windowHeight) {
+                        btn.style.opacity = '0.3';
+                    } else {
+                        btn.style.opacity = '1';
+                    }
+                }
+            });
+        }
     </script>
 
     <footer style="text-align: center; padding: 0px; padding-top: 10px; color: #64748b; border-top: 1px solid #e5e7eb; margin-top: 35px;">
