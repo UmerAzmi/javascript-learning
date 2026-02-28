@@ -140,103 +140,72 @@
             background-color: #f0f0f0;
             min-height: 30px;
         }
-        /* ============= MOBILE RESPONSIVENESS ============= */
 
-        /* Make tables responsive */
-        @media (max-width: 768px) {
-            /* Tables scroll horizontally on mobile */
-            table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-                -webkit-overflow-scrolling: touch;
-            }
-            
-            /* Smaller font sizes on mobile */
-            body {
-                font-size: 14px;
-                padding: 10px;
-            }
-            
-            section {
-                padding: 15px;
-                margin: 10px 0;
-            }
-            
-            h1 {
-                font-size: 24px !important;
-                padding: 15px !important;
-            }
-            
-            h2 {
-                font-size: 20px;
-            }
-            
-            h3 {
-                font-size: 18px;
-            }
-            
-            /* JS Panel takes 90% width on mobile instead of 40% */
-            #jsPanel {
-                width: 90% !important;
-                right: -90% !important;
-            }
-            
-            /* When panel opens, don't shrink body (overlay instead) */
-            body.panel-open {
-                margin-right: 0 !important;
-            }
-            
-            /* Make floating button smaller and adjust position */
-            #jsToggleBtn {
-                bottom: 15px;
-                right: 15px;
-                padding: 10px 15px;
-                font-size: 13px;
-            }
-            
-            /* Syntax boxes scroll horizontally */
-            .syntax-box {
-                overflow-x: auto;
-                font-size: 11px;
-            }
-            
-            /* Code in JS panel is smaller */
-            #jsPanelCode {
-                font-size: 11px;
-                padding: 10px;
-            }
-            
-            /* Make comparison grids stack vertically */
-            .comparison {
-                grid-template-columns: 1fr !important;
-            }
-            
-            /* Cards grid becomes single column */
-            .cards-grid {
-                grid-template-columns: 1fr !important;
-            }
-        }
+/* Make tables responsive */
+@media (max-width: 768px) {
+    /* Tables scroll horizontally on mobile */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Smaller font sizes on mobile */
+    body {
+        font-size: 14px;
+        padding: 10px;
+    }
+    
+    section {
+        padding: 15px;
+        margin: 10px 0;
+    }
+    
+    h1 {
+        font-size: 24px !important;
+        padding: 15px !important;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+    
+    h3 {
+        font-size: 18px;
+    }
+    
+    /* Syntax boxes scroll horizontally */
+    .syntax-box {
+        overflow-x: auto;
+        font-size: 11px;
+    }
+    
+    /* Make comparison grids stack vertically */
+    .comparison {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Cards grid becomes single column */
+    .cards-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
 
-        /* Extra small phones */
-        @media (max-width: 480px) {
-            #jsPanel {
-                width: 95% !important;
-                right: -95% !important;
-            }
-            
-            h1 {
-                font-size: 20px !important;
-            }
-            
-            table {
-                font-size: 12px;
-            }
-            
-            th, td {
-                padding: 8px;
-            }
-        }
+/* Extra small phones */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px !important;
+    }
+    
+    table {
+        font-size: 12px;
+    }
+    
+    th, td {
+        padding: 8px;
+    }
+}
     </style>
 </head>
 <body>
@@ -544,14 +513,10 @@ console.log(json);  <span class="comment">// '{"name":"Umer","age":23}'</span>
     <script src="7.js"></script>
 
 
+
+    
 <style>
-    /* Shrinks main content when panel is open (DESKTOP ONLY) */
-    @media (min-width: 769px) {
-        body.panel-open {
-            margin-right: 40%;
-            transition: margin-right 0.3s ease;
-        }
-    }
+    /* Body transition */
     body {
         transition: margin-right 0.3s ease;
     }
@@ -582,52 +547,15 @@ console.log(json);  <span class="comment">// '{"name":"Umer","age":23}'</span>
         box-shadow: 0 6px 20px rgba(34, 197, 94, 0.5);
     }
 
-    /* Side panel - DESKTOP (768px and up) */
-    @media (min-width: 769px) {
-        #jsPanel {
-            position: fixed;
-            top: 0;
-            right: -40%;
-            width: 40%;
-            height: 100%;
-            background-color: #1e293b;
-            z-index: 999;
-            transition: right 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            box-shadow: -5px 0 20px rgba(0,0,0,0.3);
-        }
-        #jsPanel.open {
-            right: 0;
-        }
-    }
-
-    /* Full screen overlay - MOBILE (768px and below) */
-    @media (max-width: 768px) {
-        #jsPanel {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #1e293b;
-            z-index: 999;
-            display: none;
-            flex-direction: column;
-        }
-        #jsPanel.open {
-            display: flex;
-        }
-        
-        /* Smaller button on mobile */
-        #jsToggleBtn {
-            bottom: 20px;
-            right: 20px;
-            padding: 12px 16px;
-            font-size: 14px;
-        }
+    /* Base panel styles */
+    #jsPanel {
+        position: fixed;
+        top: 0;
+        background-color: #1e293b;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.3);
     }
 
     /* Panel header */
@@ -663,6 +591,7 @@ console.log(json);  <span class="comment">// '{"name":"Umer","age":23}'</span>
     /* Code area */
     #jsPanelCode {
         overflow-y: auto;
+        overflow-x: auto;
         flex: 1;
         padding: 20px;
         margin: 0;
@@ -671,14 +600,9 @@ console.log(json);  <span class="comment">// '{"name":"Umer","age":23}'</span>
         line-height: 1.7;
         color: #e2e8f0;
         white-space: pre;
-    }
-    
-    /* Mobile code adjustments */
-    @media (max-width: 768px) {
-        #jsPanelCode {
-            font-size: 11px;
-            padding: 15px;
-        }
+        word-wrap: normal;
+        word-break: normal;
+        box-sizing: border-box;
     }
 
     /* Syntax highlighting colors */
@@ -687,6 +611,76 @@ console.log(json);  <span class="comment">// '{"name":"Umer","age":23}'</span>
     .js-comment   { color: #94a3b8; font-style: italic; }
     .js-number    { color: #fb923c; }
     .js-function  { color: #60a5fa; }
+
+    /* ========== DESKTOP (769px and up) ========== */
+    @media (min-width: 769px) {
+        /* Shrink body content when panel opens */
+        body.panel-open {
+            margin-right: 40%;
+        }
+        
+        /* Side panel from right */
+        #jsPanel {
+            right: -40%;
+            width: 40%;
+            height: 100%;
+            transition: right 0.3s ease;
+        }
+        #jsPanel.open {
+            right: 0;
+        }
+    }
+
+    /* ========== MOBILE (768px and below) ========== */
+    @media (max-width: 768px) {
+        /* Don't shrink body on mobile */
+        body.panel-open {
+            margin-right: 0;
+        }
+        
+        /* Bottom half panel (slides up from bottom) */
+        #jsPanel {
+            left: 0;
+            right: 0;
+            bottom: -50%;
+            top: auto;
+            width: 100%;
+            height: 50%;
+            transition: bottom 0.3s ease;
+        }
+        #jsPanel.open {
+            bottom: 0;
+        }
+        
+        /* Smaller text on mobile */
+        #jsPanelCode {
+            font-size: 11px;
+            padding: 8px;
+            line-height: 1.5;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        #jsPanelHeader {
+            padding: 10px;
+        }
+        
+        #jsPanelTitle {
+            font-size: 12px;
+        }
+        
+        #jsPanelClose {
+            font-size: 20px;
+            padding: 5px;
+        }
+        
+        /* Smaller button on mobile */
+        #jsToggleBtn {
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 16px;
+            font-size: 14px;
+        }
+    }
 </style>
 
 <!-- Floating Button -->

@@ -46,7 +46,7 @@ function runSyncVsAsync(){
     // 3. Tasks 2, 3, 4 run immediately (synchronous)
     // 4. After 3 seconds, Task 1 runs, then calls func2's remaining code
 
-    console.log("=== Synchronous vs Asynchronous Demo ===");
+    console.log("=== Sync vs Async ===");
     func1(func2);
     console.log("This runs before Task 1 (because setTimeout is async)");
 }
