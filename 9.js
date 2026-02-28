@@ -257,127 +257,30 @@ myButton2.addEventListener("click", event => {
 // visibility: hidden → Image disappears, but empty space remains
 
 
-// ================= TOPIC 47: IMAGE SLIDER =================
+// ================= TOPIC 47: DOM SELECTORS =================
 
-// IMAGE SLIDER - Automatically cycles through images with navigation buttons
+// 1. getElementById() - Fast, ID only, no # needed
+const myBox1 = document.getElementById("myBox");
 
-// querySelectorAll() = Returns ALL elements matching selector as NodeList
-// Returns static list (doesn't update if DOM changes)
-const slides = document.querySelectorAll(".slides img");
+// 2. getElementsByClassName() - Live collection, no . needed, must convert to array
+const infoBoxes = document.getElementsByClassName("info-box");
+Array.from(infoBoxes).forEach(box => { /* do something */ });
 
-// Variables to track slider state
-let slideIndex = 0;  // Current slide being shown (0-based index)
-let intervalId = null;  // Stores timer ID for auto-sliding
+// 3. getElementsByTagName() - Live collection, must convert to array
+const allButtons = document.getElementsByTagName("button");
 
-// DOMContentLoaded = Event fires when HTML is fully loaded and parsed
-// Ensures DOM is ready before running JavaScript
-document.addEventListener("DOMContentLoaded", initializeSlider);
+// 4. querySelector() - FIRST match, any CSS selector, need # or . ⭐
+const firstInfoBox = document.querySelector(".info-box");  // Need . for class
+const boxQuery = document.querySelector("#myBox");  // Need # for ID
 
-function initializeSlider(){
-    // Check if slides exist before initializing
-    if(slides.length > 0){
-        // .classList.add() = Adds a CSS class to element
-        // Makes first slide visible
-        slides[slideIndex].classList.add("displaySlide");
-        
-        // setInterval(function, milliseconds) = Repeatedly calls function at interval
-        // Auto-advances to next slide every 5 seconds (5000ms)
-        // Returns interval ID that can be used to stop it
-        intervalId = setInterval(nextSlide, 5000);
-    }
-}
+// 5. querySelectorAll() - ALL matches, forEach works directly ⭐
+const allInfoBoxes = document.querySelectorAll(".info-box");
+allInfoBoxes.forEach(box => { /* do something */ });  // No conversion needed!
 
-function showSlide(index){
-    // Handle wrap-around at end of slides
-    if(index >= slides.length){
-        slideIndex = 0;  // Go back to first slide
-    }
-    // Handle wrap-around at beginning of slides
-    else if(index < 0){
-        slideIndex = slides.length - 1;  // Go to last slide
-    }
-
-    // .forEach() = Executes function for each element in NodeList
-    // Remove display class from all slides (hide all)
-    slides.forEach(slide => {
-        // .classList.remove() = Removes a CSS class from element
-        slide.classList.remove("displaySlide");
-    });
-    
-    // Add display class to current slide (show only this one)
-    slides[slideIndex].classList.add("displaySlide");
-}
-
-function prevSlide(){
-    // clearInterval(intervalId) = Stops the repeating timer
-    // Stops auto-sliding when user manually navigates
-    clearInterval(intervalId);
-    
-    slideIndex--;  // Go to previous slide
-    showSlide(slideIndex);  // Display it
-}
-
-function nextSlide(){
-    slideIndex++;  // Go to next slide
-    showSlide(slideIndex);  // Display it
-}
-
-// Key Methods/Properties Explained:
-// - querySelectorAll() = Gets all matching elements
-// - DOMContentLoaded = Event when HTML is ready
-// - classList.add() = Adds CSS class to element
-// - classList.remove() = Removes CSS class from element
-// - setInterval() = Repeats function at interval
-// - clearInterval() = Stops setInterval timer
-// - forEach() = Loops through each element
-// - slides.length = Number of slides in collection
+// Best practice: Use querySelector/querySelectorAll for modern code
 
 
-// ================= TOPIC 48: QUERYSELECTOR & QUERYSELECTORALL =================
-
-// querySelector() vs querySelectorAll()
-// Both use CSS selectors to find elements (like in CSS: .class, #id, tag)
-
-// -------- querySelector() --------
-// Returns: FIRST element that matches the selector (single element)
-// Returns null if no match found
-// Syntax: document.querySelector(selector)
-
-// Examples:
-const firstBox = document.querySelector(".box");  // First element with class "box"
-const header = document.querySelector("#header");  // Element with id "header"
-const firstPara = document.querySelector("p");  // First <p> element
-const firstLink = document.querySelector("a[href]");  // First <a> with href attribute
-
-// -------- querySelectorAll() --------
-// Returns: ALL elements that match the selector (NodeList - array-like)
-// Returns empty NodeList if no matches
-// Syntax: document.querySelectorAll(selector)
-
-// Examples:
-const allBoxes = document.querySelectorAll(".box");  // All elements with class "box"
-const allParas = document.querySelectorAll("p");  // All <p> elements
-const allButtons = document.querySelectorAll("button");  // All <button> elements
-
-// Working with querySelectorAll results:
-// Can use .forEach(), .length, array indexing [0], [1], etc.
-allBoxes.forEach(box => {
-    box.style.backgroundColor = "lightblue";  // Apply to each element
-});
-
-console.log("Number of boxes:", allBoxes.length);  // Count of elements
-console.log("First box:", allBoxes[0]);  // Access by index
-
-// Key Differences:
-// querySelector() = ONE element (first match)
-// querySelectorAll() = ALL elements (NodeList)
-
-// When to use which:
-// querySelector() → When you only need one element (usually with ID)
-// querySelectorAll() → When you need all matching elements (classes, tags)
-
-
-// ================= TOPIC 49: QUICK REFERENCE - USEFUL METHODS =================
+// ================= TOPIC 48: OTHER USEFUL METHODS =================
 
 // Short, simple explanations for commonly used methods/properties:
 
@@ -408,3 +311,13 @@ console.log("Container HTML:", container.innerHTML);  // Gets HTML
 // .fontSize = Gets the computed font size property
 const fontSize = window.getComputedStyle(display).fontSize;
 console.log("Font size:", fontSize);  // e.g., "16px"
+
+// DOMContentLoaded = Event fires when HTML is fully loaded and parsed
+// Use this to run JavaScript only after the page elements are ready
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Page loaded! Safe to access elements now.");
+    // All your code that needs DOM elements goes here
+});
+
+// Why use it? Prevents errors from trying to access elements before they exist
+// Example: If script runs before <div id="myBox"> loads, getElementById returns null

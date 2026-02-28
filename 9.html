@@ -420,10 +420,10 @@
             • <strong>display: none</strong> - When you want elements below to move up<br>
             • <strong>visibility: hidden</strong> - When you want to keep the space occupied
             <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
-                <button id="myButton1">🚀 Add Elemets</button>
+                <button id="myButton1">😶‍🌫️ Display Button</button>
             </div>
             <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
-                <button id="myButton2">🚀 Add Elemets</button>
+                <button id="myButton2">🌫️ Visibility Button</button>
             </div>
             <div style="position: absolute; right: 0; bottom: 0; display: flex; gap: 10px; padding: 20px;">
                 <img id="myImage1"
@@ -439,114 +439,87 @@
         </div>
     </section>
 
-    <!-- ================= TOPIC 47: IMAGE SLIDER ================= -->
+    <!-- ================= TOPIC 47: DOM SELECTORS ================= -->
     <section>
-        <h2>Topic 47: Image Slider</h2>
-        <p>Auto-cycling image slider with manual controls</p>
+        <h2>Topic 47: DOM Selection Methods</h2>
+        <p>Five ways to select HTML elements in JavaScript</p>
         
-        <h3>Key Methods Explained</h3>
+        <div class="info-box">
+            <strong>Modern vs Legacy:</strong> <br>
+            • querySelector/querySelectorAll are recommended for new code. <br>
+            • The older methods (getElementById, getElementsByClassName, getElementsByTagName) exist for backwards compatibility.
+        </div>
+
         <table>
             <tr>
-                <th>Method/Property</th>
-                <th>Simple Explanation</th>
+                <th>Method</th>
+                <th>Selector</th>
+                <th>Returns</th>
+                <th>Can use .forEach()?</th>
             </tr>
             <tr>
-                <td><code>querySelectorAll()</code></td>
-                <td>Gets all matching elements as NodeList</td>
+                <td><code>getElementById()</code></td>
+                <td>ID only (no #)</td>
+                <td>Single element or null</td>
+                <td>N/A (single element)</td>
             </tr>
             <tr>
-                <td><code>DOMContentLoaded</code></td>
-                <td>Event fires when HTML is fully loaded</td>
+                <td><code>getElementsByClassName()</code></td>
+                <td>Class only (no .)</td>
+                <td>HTMLCollection (live)</td>
+                <td>❌ Need to convert to array</td>
             </tr>
             <tr>
-                <td><code>classList.add()</code></td>
-                <td>Adds a CSS class to element</td>
+                <td><code>getElementsByTagName()</code></td>
+                <td>Tag name</td>
+                <td>HTMLCollection (live)</td>
+                <td>❌ Need to convert to array</td>
             </tr>
             <tr>
-                <td><code>classList.remove()</code></td>
-                <td>Removes a CSS class from element</td>
+                <td><code>querySelector()</code> ⭐</td>
+                <td>Any CSS selector</td>
+                <td>FIRST matching element</td>
+                <td>N/A (single element)</td>
             </tr>
             <tr>
-                <td><code>setInterval(fn, ms)</code></td>
-                <td>Repeats function every X milliseconds</td>
-            </tr>
-            <tr>
-                <td><code>clearInterval(id)</code></td>
-                <td>Stops the setInterval timer</td>
-            </tr>
-            <tr>
-                <td><code>.forEach()</code></td>
-                <td>Loops through each element in collection</td>
-            </tr>
-            <tr>
-                <td><code>.length</code></td>
-                <td>Number of elements in collection</td>
+                <td><code>querySelectorAll()</code> ⭐</td>
+                <td>Any CSS selector</td>
+                <td>ALL elements (NodeList)</td>
+                <td>✅ Yes!</td>
             </tr>
         </table>
+
+        <h3>Quick Examples</h3>
+        <div class="syntax-box">
+            <pre>
+<span class="comment">// Method 1: By ID (fast, but ID only)</span>
+<span class="keyword">const</span> header = document.getElementById(<span class="string">"header"</span>);  <span class="comment">// No # needed</span>
+
+<span class="comment">// Method 2: By class (returns live collection)</span>
+<span class="keyword">const</span> boxes = document.getElementsByClassName(<span class="string">"box"</span>);  <span class="comment">// No . needed</span>
+Array.from(boxes).forEach(box => { });  <span class="comment">// Need to convert</span>
+
+<span class="comment">// Method 3: By tag (returns live collection)</span>
+<span class="keyword">const</span> paras = document.getElementsByTagName(<span class="string">"p"</span>);
+
+<span class="comment">// Method 4: querySelector - FIRST match ⭐</span>
+<span class="keyword">const</span> firstBox = document.querySelector(<span class="string">".box"</span>);  <span class="comment">// Need . for class</span>
+<span class="keyword">const</span> navBtn = document.querySelector(<span class="string">"#nav > button"</span>);  <span class="comment">// Complex CSS</span>
+
+<span class="comment">// Method 5: querySelectorAll - ALL matches ⭐</span>
+<span class="keyword">const</span> allBoxes = document.querySelectorAll(<span class="string">".box"</span>);
+allBoxes.forEach(box => { });  <span class="comment">// .forEach() works directly!</span>
+</pre>
+        </div>
 
         <div class="example-box">
-            <h3>How It Works:</h3>
-            1. Load all images into NodeList<br>
-            2. Show first image on page load<br>
-            3. Auto-advance every 5 seconds<br>
-            4. Stop auto-advance when user clicks prev/next<br>
-            5. Wrap around at beginning/end
+            <strong>🎯 Best Practice:</strong> Use <code>querySelector()</code> and <code>querySelectorAll()</code> for modern code — they're more flexible and work with any CSS selector!
         </div>
     </section>
 
-    <!-- ================= TOPIC 48: QUERYSELECTOR ================= -->
+    <!-- ================= TOPIC 48: Other Useful Methods ================= -->
     <section>
-        <h2>Topic 48: querySelector vs querySelectorAll</h2>
-        <p>Two methods to select elements using CSS selectors</p>
-        
-        <table>
-            <tr>
-                <th>Feature</th>
-                <th>querySelector()</th>
-                <th>querySelectorAll()</th>
-            </tr>
-            <tr>
-                <td>Returns</td>
-                <td>FIRST matching element</td>
-                <td>ALL matching elements (NodeList)</td>
-            </tr>
-            <tr>
-                <td>If no match</td>
-                <td>null</td>
-                <td>Empty NodeList []</td>
-            </tr>
-            <tr>
-                <td>Use case</td>
-                <td>Single element (usually ID)</td>
-                <td>Multiple elements (class, tag)</td>
-            </tr>
-            <tr>
-                <td>Can loop?</td>
-                <td>No (single element)</td>
-                <td>Yes (forEach, for loop)</td>
-            </tr>
-        </table>
-
-        <div class="syntax-box">
-<span class="comment">// querySelector - Returns ONE element</span>
-<span class="keyword">const</span> header = document.querySelector(<span class="string">"#header"</span>);  <span class="comment">// ID</span>
-<span class="keyword">const</span> firstBox = document.querySelector(<span class="string">".box"</span>);  <span class="comment">// Class</span>
-
-<span class="comment">// querySelectorAll - Returns ALL elements</span>
-<span class="keyword">const</span> allBoxes = document.querySelectorAll(<span class="string">".box"</span>);
-allBoxes.forEach(box => {
-    box.style.color = <span class="string">"red"</span>;  <span class="comment">// Apply to each</span>
-});
-        </div>
-
-        <div class="info-box">
-            <strong>CSS Selectors work:</strong> .class, #id, tag, [attribute], parent > child, etc.
-        </div>
-    </section>
-
-    <!-- ================= TOPIC 49: QUICK REFERENCE ================= -->
-    <section>
-        <h2>Topic 49: Quick Reference - Useful Methods</h2>
+        <h2>Topic 48: Quick Reference - Other Useful Methods</h2>
         <p>One-line explanations for commonly used methods</p>
         
         <table>
@@ -582,12 +555,17 @@ allBoxes.forEach(box => {
                 <td><code>getComputedStyle()</code></td>
                 <td>Gets actual computed CSS styles of element</td>
             </tr>
+            <tr>
+                <td><code>DOMContentLoaded</code></td>
+                <td>Event fires when HTML is fully loaded</td>
+            </tr>
         </table>
 
         <div class="example-box">
             Check the JavaScript file for usage examples of each method!
         </div>
     </section>
+
     <section style="background-color: white; padding: 20px; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
         <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
             <a href="8.html" style="text-decoration: none;">
