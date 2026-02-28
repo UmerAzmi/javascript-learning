@@ -415,26 +415,31 @@
             </tr>
         </table>
 
-        <div class="example-box" style=" position: relative;">
+        <div class="example-box">
             <strong>When to use which:</strong><br>
             • <strong>display: none</strong> - When you want elements below to move up<br>
             • <strong>visibility: hidden</strong> - When you want to keep the space occupied
-            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
-                <button id="myButton1">😶‍🌫️ Display Button</button>
-            </div>
-            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
-                <button id="myButton2">🌫️ Visibility Button</button>
-            </div>
-            <div style="position: absolute; right: 0; bottom: 0; display: flex; gap: 10px; padding: 20px;">
-                <img id="myImage1"
-                    src="https://raw.githubusercontent.com/UmerAzmi/umerazmi/4808b388a23a62988740c6eb078b6d75cab148a9/imgs/js.png"
-                    alt="img"
-                    style="display: block;">
 
-                <img id="myImage2"
-                    src="https://raw.githubusercontent.com/UmerAzmi/umerazmi/4808b388a23a62988740c6eb078b6d75cab148a9/imgs/js.png"
-                    alt="img"
-                    style="display: block; visibility: none;">
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 15px; margin-top: 15px;">
+                
+                <!-- Buttons column -->
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <button id="myButton1">😶‍🌫️ Display</button>
+                    <button id="myButton2">🌫️ Visibility</button>
+                </div>
+
+                <!-- Images -->
+                <div style="display: flex; gap: 10px; margin-left: auto;">
+                    <img id="myImage1"
+                        src="https://raw.githubusercontent.com/UmerAzmi/umerazmi/4808b388a23a62988740c6eb078b6d75cab148a9/imgs/js.png"
+                        alt="img"
+                        style="display: block; width: 60px; height: 60px;">
+                    <img id="myImage2"
+                        src="https://raw.githubusercontent.com/UmerAzmi/umerazmi/4808b388a23a62988740c6eb078b6d75cab148a9/imgs/js.png"
+                        alt="img"
+                        style="display: block; visibility: visible; width: 60px; height: 60px;">
+                </div>
+
             </div>
         </div>
     </section>
