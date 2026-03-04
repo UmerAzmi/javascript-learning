@@ -282,8 +282,6 @@ allInfoBoxes.forEach(box => { /* do something */ });  // No conversion needed!
 
 // ================= TOPIC 48: OTHER USEFUL METHODS =================
 
-// Short, simple explanations for commonly used methods/properties:
-
 // .toFixed(n) = Rounds number to n decimal places and returns as string
 const price = 19.567;
 console.log("Price:", price.toFixed(2));  // "19.57"
@@ -296,21 +294,29 @@ console.log("Is 'abc' a number?", isNaN("abc"));  // true
 console.log("Is 123 a number?", isNaN(123));  // false
 
 // .scrollWidth = Total width of content including hidden overflow
-const display = document.getElementById("display");
-console.log("Total content width:", display.scrollWidth);
+const myBox0 = document.getElementById("myBox");
+if (myBox0) {
+    console.log("Total content width:", myBox0.scrollWidth);
+}
 
 // .clientWidth = Visible width of element (excludes scrollbar, border)
-console.log("Visible width:", display.clientWidth);
+if (myBox0) {
+    console.log("Visible width:", myBox0.clientWidth);
+}
 
 // .innerHTML = Gets or sets HTML content inside element (including tags)
-const container = document.getElementById("container");
-container.innerHTML = "<h2>New Content</h2>";  // Sets HTML
-console.log("Container HTML:", container.innerHTML);  // Gets HTML
+const exampleBox0 = document.getElementById("exampleBox");
+if (exampleBox) {
+    console.log("Example box HTML:", exampleBox0.innerHTML);  // Gets HTML
+    // exampleBox.innerHTML = "<h2>New Content</h2>";  // Sets HTML (uncomment to test)
+}
 
 // window.getComputedStyle(element) = Gets actual computed CSS styles
-// .fontSize = Gets the computed font size property
-const fontSize = window.getComputedStyle(display).fontSize;
-console.log("Font size:", fontSize);  // e.g., "16px"
+if (myBox0) {
+    const computedStyle = window.getComputedStyle(myBox0);
+    console.log("myBox0 font size:", computedStyle.fontSize);
+    console.log("myBox0 background color:", computedStyle.backgroundColor);
+}
 
 // DOMContentLoaded = Event fires when HTML is fully loaded and parsed
 // Use this to run JavaScript only after the page elements are ready
@@ -320,4 +326,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Why use it? Prevents errors from trying to access elements before they exist
-// Example: If script runs before <div id="myBox"> loads, getElementById returns null
+// Example: If script runs before <div id="myBox0"> loads, getElementById returns null
