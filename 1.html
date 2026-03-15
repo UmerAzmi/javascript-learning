@@ -510,15 +510,28 @@ document.<span class="keyword">getElementById</span>(<span class="string">"mySub
         </tr>
     </table>
 
-    <div class="example-box">
-        <h3>User Input - Example:</h3>
+<div class="example-box">
+    <h3>User Input - Example:</h3>
+
+    <div style="margin-bottom: 25px;">
+        <strong style="display: block; margin-bottom: 8px;">Method 1: Using window.prompt()</strong>
+        <p style="margin: 0 0 10px 0;">Click the button to see the popup input method (easy but looks less professional):</p>
+        <button class="demo-btn" id="promptBtn">Try Prompt Method</button>
+        <div class="output" id="promptGreeting" style="margin-top: 10px; display: block;">
+            <h3 id="promptResult" style="margin: 0;">Greeting will appear here</h3>
+        </div>
+    </div>
+    
+    <div>
+        <strong style="display: block; margin-bottom: 8px;">Method 2: Using HTML Input (Professional Way)</strong>
         <label for="myText">Enter your username:</label><br>
         <input type="text" id="myText" placeholder="Your username">
         <button class="demo-btn" id="mySubmit">Submit</button>
-        <div class="output">
-            <h3 id="myH1-topic4" style="margin-top: 10px;">Greeting will appear here</h3>
+        <div class="output" style="margin-top: 10px;">
+            <h3 id="myH1-topic4" style="margin: 0;">Greeting will appear here</h3>
         </div>
     </div>
+</div>
 
     <div class="example-box">
         <h3>Examples in JS File:</h3>
@@ -600,9 +613,8 @@ document.<span class="keyword">getElementById</span>(<span class="string">"mySub
     <div class="example-box">
         <h3>Examples in JS File:</h3>
         <ul>
-            <li><strong>Example 1:</strong> <code>window.prompt()</code> returns a string - convert to number to do math</li>
-            <li><strong>Example 2:</strong> Converting <code>"pizza"</code> to all three types and checking with <code>typeof</code></li>
-            <li><strong>Example 3:</strong> Truthy and falsy values with <code>Boolean()</code></li>
+            <li><strong>Example 1:</strong> Converting <code>"pizza"</code> to all three types and checking with <code>typeof</code></li>
+            <li><strong>Example 2:</strong> Truthy and falsy values with <code>Boolean()</code></li>
         </ul>
     </div>
 </section>

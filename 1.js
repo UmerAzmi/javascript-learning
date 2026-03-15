@@ -101,6 +101,23 @@ console.log(result);
 // let username = window.prompt("What's your username?");
 // console.log(username);
 
+// ------------------------- EASY WAY (Button-triggered) -------------------------
+// Button to demonstrate window.prompt() method
+document.getElementById("promptBtn").onclick = function() {
+    let username = window.prompt("What's your username?");
+    
+    if (username !== null && username !== "") {
+        // Show the greeting
+        const outputDiv = document.getElementById("promptGreeting");
+        const resultH3 = document.getElementById("promptResult");
+        
+        // outputDiv.style.display = "block";
+        resultH3.textContent = `Hello ${username}!`;
+        
+        console.log("Username from prompt:", username);
+    }
+}
+
 // --------------------- PROFESSIONAL WAY ---------------------
 let username;
 
@@ -121,14 +138,14 @@ document.getElementById("mySubmit").onclick = function() {
 
 // --------------- EXAMPLE 1 ---------------
 // window.prompt always returns a STRING - convert before doing math
-let userAge = window.prompt("How old are you?");
+let userAge = '22';
 
 // Number() = converts value to a number so we can do math
 userAge = Number(userAge);
 userAge += 1;  // Now this works as math, not string joining
 
 // typeof = tells you the data type of a value
-console.log("Age from window prompt + 1:",userAge, "\nType of userAge:" ,typeof userAge);  // e.g. 24 'number'
+console.log("Age '22' + 1:",userAge, "\nType of userAge:" ,typeof userAge);  // e.g. 24 'number'
 
 // --------------- EXAMPLE 2 ---------------
 let x = "pizza";
